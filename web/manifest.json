@@ -1,13 +1,12 @@
 {
-    "name": "tablero_cst",
+    "name": "Tablero CST",
     "short_name": "tablero_cst",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
-    "orientation": "portrait-primary",
-    "prefer_related_applications": false,
+    "scope": "/",
+    "start_url": "/",
+    "display": "minimal-ui",
+    "background_color": "#89888b",
+    "theme_color": "#64293e",
+    "description": "Tablero de Indicadores sobre los servicios de la CST - CIMAT",
     "icons": [
         {
             "src": "icons/Icon-192.png",
