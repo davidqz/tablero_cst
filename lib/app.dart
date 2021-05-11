@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tablero_cst/pantallas/pantalla_inicio.dart';
-import 'package:tablero_cst/rutas.dart' as rutas;
-import 'package:tablero_cst/utilidades/constantes.dart';
+
+import 'pantallas/pantalla_inicio.dart';
+import 'rutas.dart' as rutas;
+import 'utilidades/constantes.dart';
 
 class TableroCstApp extends StatelessWidget {
   const TableroCstApp();
@@ -20,7 +21,7 @@ class TableroCstApp extends StatelessWidget {
       debugShowCheckedModeBanner: true,
       initialRoute: rutaPrincipal,
       routes: <String, WidgetBuilder>{
-        rutaPrincipal: (context) => const PantallaInicio(),
+        rutaPrincipal: (context) => PantallaInicio(),
       },
     );
   }

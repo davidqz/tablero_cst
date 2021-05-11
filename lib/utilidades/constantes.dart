@@ -8,11 +8,11 @@ const kColorSecundario = Color(0xFF235B4E);
 const kColorFondo = Color(0xFFE5E5E5);
 
 const kPaletaColores = [
-  const Color(0xFFD77658),
-  const Color(0xFFAB4027),
-  const Color(0xFF004651),
-  const Color(0xFF457D7B),
-  const Color(0xFF4FA6A6),
-  const Color(0xFF9BCCC6),
-  const Color(0xFFE39F8B),
+  Color(0xFFD77658),
+  Color(0xFFAB4027),
+  Color(0xFF004651),
+  Color(0xFF457D7B),
+  Color(0xFF4FA6A6),
+  Color(0xFF9BCCC6),
+  Color(0xFFE39F8B),
 ];
