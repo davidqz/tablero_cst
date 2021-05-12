@@ -2,13 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'pantallas/pantalla_inicio.dart';
-import 'rutas.dart' as rutas;
 import 'utilidades/constantes.dart';
 
 class TableroCstApp extends StatelessWidget {
   const TableroCstApp();
 
-  static const String rutaPrincipal = rutas.principal;
+  static const String rutaPrincipal = '/';
 
   @override
   Widget build(BuildContext context) {

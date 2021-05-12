@@ -4,17 +4,15 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
-import '../datos/modelo/modelo_datos.dart';
+import '../modelo_datos/modelo_datos.dart';
 import '../utilidades/constantes.dart';
 
 class PantallaInicio extends StatelessWidget {
   Future<ModeloDatos> cargarDatos() async {
-    print("Cargar Datos");
     // Leer archivo
-    final jsonString = await rootBundle.loadString("lib/datos/datos_sgp1.json");
-    print(jsonString.length);
+    final jsonString = await rootBundle
+        .loadString("assets/datos/datos_sgp_desarrollo_v1.json", cache: false);
 
     // Use the compute function to run parsePhotos in a separate isolate.
     return compute(procesarDatos, jsonString);
@@ -24,7 +22,6 @@ class PantallaInicio extends StatelessWidget {
     final datos = json.decode(jsonString) as Map<String, dynamic>;
     return ModeloDatos.fromJson(datos);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +35,7 @@ class PantallaInicio extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Image(
-                  image: AssetImage('lib/imagenes/logo_conacyt.png'),
+                  image: AssetImage('assets/imagenes/logo_conacyt.png'),
                   height: 80,
                 ),
               ),
@@ -52,7 +49,7 @@ class PantallaInicio extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Image(
-                  image: AssetImage('lib/imagenes/logo_cimat.png'),
+                  image: AssetImage('assets/imagenes/logo_cimat.png'),
                   height: 80,
                 ),
               ),
@@ -67,16 +64,10 @@ class PantallaInicio extends StatelessWidget {
                     if (snapshot.hasError) print(snapshot.error);
 
                     return snapshot.hasData
-                        ? TableroPrincipal(datos: snapshot.data!)
+                        ? TableroPrincipal(snapshot.data!)
                         : Center(child: CircularProgressIndicator());
                   },
                 ),
-              ),
-              IconButton(
-                icon: Icon(FontAwesome.repeat),
-                onPressed: () {
-                  print('Reload');
-                },
               ),
             ],
           ),
@@ -86,21 +77,36 @@ class PantallaInicio extends StatelessWidget {
   }
 }
 
-class TableroPrincipal extends StatefulWidget {
-  TableroPrincipal({required this.datos});
+class TableroPrincipal extends StatelessWidget {
+  TableroPrincipal(this._datos);
 
-  final ModeloDatos datos;
+  final ModeloDatos _datos;
 
-  @override
-  _TableroPrincipalState createState() => _TableroPrincipalState();
-}
+  int get totalServicios => _datos.servicios.length;
 
-class _TableroPrincipalState extends State<TableroPrincipal> {
+  List<Servicio> get serviciosAbiertos =>
+      _datos.servicios.where((s) => s.estatus == 'Abierto').toList();
 
-  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('No de servicios: ${widget.datos.servicios.length}'),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Text(
+            'No de servicios: $totalServicios',
+            style: Theme.of(context).textTheme.headline5,
+          ),
+          Text(
+            'Abiertos: ${serviciosAbiertos.length}',
+            style: Theme.of(context).textTheme.headline5,
+          ),
+          Text(
+            'Cerrados: ${totalServicios - serviciosAbiertos.length}',
+            style: Theme.of(context).textTheme.headline5,
+          ),
+        ],
+      ),
     );
   }
 }
