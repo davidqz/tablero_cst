@@ -1,26 +1,24 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart' show compute;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show rootBundle;
 
 import '../modelo_datos/modelo_datos.dart';
 import '../utilidades/constantes.dart';
 
 class PantallaInicio extends StatelessWidget {
-  Future<ModeloDatos> cargarDatos() async {
-    // Leer archivo
-    final jsonString = await rootBundle
-        .loadString("assets/datos/datos_sgp_desarrollo_v1.json", cache: false);
 
-    // Use the compute function to run parsePhotos in a separate isolate.
-    return compute(procesarDatos, jsonString);
+  Future<ModeloDatos> _cargarDatos(BuildContext context) async {
+    print('Leyendo archivo: $kRutaDatosJson');
+    final jsonString = await DefaultAssetBundle.of(context)
+        .loadString(kRutaDatosJson);
+    return compute(_procesarDatos, jsonString);
   }
 
-  ModeloDatos procesarDatos(String jsonString) {
-    final datos = json.decode(jsonString) as Map<String, dynamic>;
-    return ModeloDatos.fromJson(datos);
+  ModeloDatos _procesarDatos(String jsonString) {
+    final mapa = json.decode(jsonString) as Map<String, dynamic>;
+    return ModeloDatos.fromJson(mapa);
   }
 
   @override
@@ -35,8 +33,8 @@ class PantallaInicio extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Image(
-                  image: AssetImage('assets/imagenes/logo_conacyt.png'),
-                  height: 80,
+                  image: AssetImage('imagenes/logo_conacyt.png'),
+                  height: 96,
                 ),
               ),
               Text(
@@ -49,8 +47,8 @@ class PantallaInicio extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Image(
-                  image: AssetImage('assets/imagenes/logo_cimat.png'),
-                  height: 80,
+                  image: AssetImage('imagenes/logo_cimat.png'),
+                  height: 96,
                 ),
               ),
             ],
@@ -59,7 +57,7 @@ class PantallaInicio extends StatelessWidget {
             children: [
               Center(
                 child: FutureBuilder<ModeloDatos>(
-                  future: cargarDatos(),
+                  future: _cargarDatos(context),
                   builder: (context, snapshot) {
                     if (snapshot.hasError) print(snapshot.error);
 
@@ -78,35 +76,40 @@ class PantallaInicio extends StatelessWidget {
 }
 
 class TableroPrincipal extends StatelessWidget {
-  TableroPrincipal(this._datos);
-
   final ModeloDatos _datos;
+
+  TableroPrincipal(this._datos);
 
   int get totalServicios => _datos.servicios.length;
 
   List<Servicio> get serviciosAbiertos =>
       _datos.servicios.where((s) => s.estatus == 'Abierto').toList();
 
+  List<Servicio> get serviciosInternos =>
+      _datos.servicios.where((s) => s.interno == '1').toList();
+
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Text(
-            'No de servicios: $totalServicios',
-            style: Theme.of(context).textTheme.headline5,
-          ),
-          Text(
-            'Abiertos: ${serviciosAbiertos.length}',
-            style: Theme.of(context).textTheme.headline5,
-          ),
-          Text(
-            'Cerrados: ${totalServicios - serviciosAbiertos.length}',
-            style: Theme.of(context).textTheme.headline5,
-          ),
-        ],
-      ),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  'Total de servicios: $totalServicios',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+                Text(
+                  'Abiertos: ${serviciosAbiertos.length}',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+                Text(
+                  'Internos: ${serviciosInternos.length}',
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+              ],
+            ),
+        ),
     );
   }
 }
