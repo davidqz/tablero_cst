@@ -15,27 +15,27 @@ class ModeloDatos {
 @JsonSerializable()
 class Servicio {
   String idServicio;
-  String interno;
-  String nombreCorto;
-  String areaResponsable;
+  int interno;
   String estatus;
-  String alcance;
-  Cliente cliente;
-  String fechaInicioProgramada;
-  String fechaFinProgramada;
-  List<Avance> avances;
+  String clave;
+  double montoProyecto;
+  String nombreCorto;
+  String sede;
+
+  List<Transaccion> ingresos;
+  List<Transaccion> gastos;
 
   Servicio(
       this.idServicio,
       this.interno,
-      this.nombreCorto,
-      this.areaResponsable,
       this.estatus,
-      this.alcance,
-      this.cliente,
-      this.fechaFinProgramada,
-      this.fechaInicioProgramada,
-      this.avances);
+      this.clave,
+      this.montoProyecto,
+      this.nombreCorto,
+      this.sede,
+      this.ingresos,
+      this.gastos,
+      );
 
   factory Servicio.fromJson(Map<String, dynamic> json) =>
       _$ServicioFromJson(json);
@@ -43,28 +43,18 @@ class Servicio {
 }
 
 @JsonSerializable()
-class Cliente {
-  String nombre;
-  String sector;
-  String pais;
-  String estado;
-  String ciudad;
+class Transaccion {
+  double monto;
+  int mes;
+  int anyo;
 
-  Cliente(this.nombre, this.sector, this.pais, this.estado, this.ciudad);
+  Transaccion(
+      this.monto,
+      this.mes,
+      this.anyo,
+      );
 
-  factory Cliente.fromJson(Map<String, dynamic> json) =>
-      _$ClienteFromJson(json);
-  Map<String, dynamic> toJson() => _$ClienteToJson(this);
-}
-
-@JsonSerializable()
-class Avance {
-  int? mes;
-  int? anyo;
-  int? porcentajeAvance;
-
-  Avance(this.mes, this.anyo, this.porcentajeAvance);
-
-  factory Avance.fromJson(Map<String, dynamic> json) => _$AvanceFromJson(json);
-  Map<String, dynamic> toJson() => _$AvanceToJson(this);
+  factory Transaccion.fromJson(Map<String, dynamic> json) =>
+      _$TransaccionFromJson(json);
+  Map<String, dynamic> toJson() => _$TransaccionToJson(this);
 }
