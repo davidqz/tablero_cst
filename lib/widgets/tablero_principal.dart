@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../modelo_datos/modelo_datos.dart';
+import '../modelos/modelo_datos.dart';
 
 final formatCurrency = new NumberFormat.simpleCurrency();
 
