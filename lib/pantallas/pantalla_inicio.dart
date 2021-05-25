@@ -12,16 +12,11 @@ class PantallaInicio extends StatelessWidget {
       backgroundColor: Theme.of(context).backgroundColor,
       body: Column(children: [
         BannerSuperior(),
-        MultiProvider(
-            providers: [
-              ChangeNotifierProvider(create: (_) => ManejadorDatos()),
-            ],
-            builder: (context, child) {
-              return Expanded(
-                  child: Provider.of(context)<ManejadorDatos>().datosCargados
-                      ? TableroPrincipal()
-                      : Center(child: CircularProgressIndicator()));
-            }),
+        Expanded(
+          child: Provider.of<ManejadorDatos>(context).datosCargados
+              ? TableroPrincipal()
+              : Center(child: CircularProgressIndicator()),
+        ),
       ]),
     );
   }

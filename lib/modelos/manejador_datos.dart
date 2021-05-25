@@ -18,6 +18,9 @@ class ManejadorDatos extends ChangeNotifier {
 
   int get totalServicios => _datos.servicios.length;
 
+  int get numServiciosInternos =>
+      _datos.servicios.where((s) => s.interno == 1).length;
+
   int get numServiciosAbiertos =>
       _datos.servicios.where((s) => s.estatus == 'Abierto').length;
 
