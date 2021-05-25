@@ -13,14 +13,19 @@ class TableroCstApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tablero CST CIMAT',
+      debugShowCheckedModeBanner: true,
+      initialRoute: rutaPrincipal,
+      routes: <String, WidgetBuilder>{
+        rutaPrincipal: (context) => PantallaInicio(),
+      },
       theme: ThemeData.light().copyWith(
         colorScheme: ColorScheme.light().copyWith(
-            primary: kColorPrimario,
-            secondary: kColorSecundario,
+          primary: kColorPrimario,
+          secondary: kColorSecundario,
         ),
         primaryColor: kColorPrimario,
         backgroundColor: kColorFondo,
-        inputDecorationTheme: InputDecorationTheme(border: OutlineInputBorder()),
+        visualDensity: VisualDensity.comfortable,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             onPrimary: Colors.white,
@@ -29,17 +34,11 @@ class TableroCstApp extends StatelessWidget {
           ),
         ),
       ),
-      // theme: ThemeData.dark().copyWith(),
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: [const Locale('es')],
-      debugShowCheckedModeBanner: true,
-      initialRoute: rutaPrincipal,
-      routes: <String, WidgetBuilder>{
-        rutaPrincipal: (context) => PantallaInicio(),
-      },
     );
   }
 }

@@ -1,79 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
-import '../modelos/modelo_datos.dart';
-
-final formatCurrency = new NumberFormat.simpleCurrency();
+import '../modelos/manejador_datos.dart';
 
 class TableroPrincipal extends StatefulWidget {
-  // Cambiar ModeloDatos por PaqueteDatos o AlmacenDatos
-  final ModeloDatos _datos;
-
-  TableroPrincipal(this._datos);
+  const TableroPrincipal();
 
   @override
   _TableroPrincipalState createState() => _TableroPrincipalState();
 }
 
 class _TableroPrincipalState extends State<TableroPrincipal> {
-  List<int> _anyos = [2019, 2020, 2021];
+  final List<int> anyos = [2019, 2020, 2021];
   int _anyoSeleccionado = 2021;
-  List<int> _meses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  final List<int> meses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   int _mesSeleccionado = 1;
 
   DateTime selectedDate = DateTime.now();
-
-  int get totalServicios => widget._datos.servicios.length;
-
-  List<Servicio> get serviciosInternos =>
-      widget._datos.servicios.where((s) => s.interno == 1).toList();
-
-  double _montosTotales(List<Servicio> servicios) {
-    double suma = 0;
-    for (var servicio in servicios) {
-      suma += servicio.montoProyecto;
-      // if (servicio.montoProyecto != 0)
-      //   print('${servicio.idServicio}: monto=${servicio.montoProyecto}');
-    }
-    return suma;
-  }
-
-  double _ingresosTotales(List<Servicio> servicios) {
-    double suma = 0;
-    for (var servicio in servicios) {
-      // double sumaServicio = 0;
-      for (var ingreso in servicio.ingresos) {
-        if (ingreso.anyo == _anyoSeleccionado &&
-            ingreso.mes <= _mesSeleccionado) {
-          // sumaServicio += ingreso.monto;
-          suma += ingreso.monto;
-        }
-      }
-      // if (sumaServicio != 0)
-      //   print('${servicio.idServicio}: suma=${sumaServicio}');
-    }
-    return suma;
-  }
-
-  List<Servicio> get serviciosAbiertos =>
-      widget._datos.servicios.where((s) => s.estatus == 'Abierto').toList();
-
-  double _gastosTotales(List<Servicio> servicios) {
-    double suma = 0;
-    for (var servicio in servicios) {
-      // double sumaServicio = 0;
-      for (var ingreso in servicio.gastos) {
-        if (ingreso.anyo == _anyoSeleccionado &&
-            ingreso.mes <= _mesSeleccionado) {
-          // sumaServicio += ingreso.monto;
-          suma += ingreso.monto;
-        }
-      }
-      // if (sumaServicio != 0)
-      //   print('${servicio.idServicio}: suma=${sumaServicio}');
-    }
-    return suma;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +46,7 @@ class _TableroPrincipalState extends State<TableroPrincipal> {
                           _anyoSeleccionado = newValue!;
                         });
                       },
-                      items: _anyos.map((anyo) {
+                      items: anyos.map((anyo) {
                         return DropdownMenuItem(
                           child: Text(
                             '$anyo',
@@ -126,7 +69,7 @@ class _TableroPrincipalState extends State<TableroPrincipal> {
                           _mesSeleccionado = newValue!;
                         });
                       },
-                      items: _meses.map((mes) {
+                      items: meses.map((mes) {
                         return DropdownMenuItem(
                           child: Text(
                             '$mes',
@@ -140,25 +83,25 @@ class _TableroPrincipalState extends State<TableroPrincipal> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      'Montos: ${formatCurrency.format(_montosTotales(serviciosAbiertos))}',
-                      style: Theme.of(context).textTheme.headline6,
+              Consumer<ManejadorDatos>(
+                builder: (_, manejador, __) {
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          'Total montos: ${manejador.montosTotales}',
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                        Text(
+                          'Abiertos: ${manejador.numServiciosAbiertos}',
+                          style: Theme.of(context).textTheme.headline6,
+                        ),
+                      ],
                     ),
-                    Text(
-                      'Ingresos: ${formatCurrency.format(_ingresosTotales(serviciosAbiertos))}',
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                    Text(
-                      'Gastos: ${formatCurrency.format(_gastosTotales(serviciosAbiertos))}',
-                      style: Theme.of(context).textTheme.headline6,
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
             ],
           ),

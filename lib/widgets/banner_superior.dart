@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tablero_cst/utilidades/constantes.dart';
+
+import '../utilidades/constantes.dart';
 
 class BannerSuperior extends StatelessWidget {
   @override
