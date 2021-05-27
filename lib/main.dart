@@ -38,6 +38,8 @@ class TableroCstApp extends StatelessWidget {
               secondary: kColorSecundario,
               background: kColorFondo,
             ),
+            primaryColor: kColorPrimario,
+            accentColor: kColorSecundario,
             backgroundColor: kColorFondo,
             inputDecorationTheme: const InputDecorationTheme(
               border: OutlineInputBorder(),

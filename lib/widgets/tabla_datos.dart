@@ -29,7 +29,7 @@ class _TablaDatosState extends State<TablaDatos> {
     ),
   ];
 
-  _ServiciosDataSource _serviciosDataSource = _ServiciosDataSource();
+  final _serviciosDataSource = _ServiciosDataSource();
 
   @override
   void dispose() {
@@ -64,7 +64,7 @@ class _ServiciosDataSource extends DataTableSource {
         DataCell(Text('EME Bioestadística')),
         DataCell(Text('Aguascalientes')),
       ]);
-    } elsegit {
+    } else {
       return DataRow.byIndex(index: 1, cells: [
         DataCell(Text('20411')),
         DataCell(Text('EMED 2020')),
