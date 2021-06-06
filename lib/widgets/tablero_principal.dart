@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../modelos/manejador_datos.dart';
+import '../utilidades/almacen_datos.dart';
 import 'indicador_texto.dart';
 import 'tabla_datos.dart';
 
-class TableroPrincipal extends StatefulWidget {
+class TableroPrincipal extends StatelessWidget {
   const TableroPrincipal();
 
   @override
-  _TableroPrincipalState createState() => _TableroPrincipalState();
-}
-
-class _TableroPrincipalState extends State<TableroPrincipal> {
-
-  @override
   Widget build(BuildContext context) {
-    return Consumer<ManejadorDatos>(
-        builder: (_, datos, __) => Padding(
+    return Consumer<AlmacenDatos>(
+        builder: (_, almacen, __) => Padding(
               padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
               child: Card(
                 color: Colors.grey[200],
@@ -29,28 +23,31 @@ class _TableroPrincipalState extends State<TableroPrincipal> {
                         children: [
                           IndicadorTexto(
                             titulo: 'Total servicios',
-                            valor: '${datos.totalServicios}',
+                            valor: '${almacen.totalServicios}',
                           ),
                           IndicadorTexto(
                             titulo: 'Servicios Internos',
-                            valor: '${datos.numServiciosInternos}',
+                            valor: '${almacen.numServiciosInternos}',
                           ),
                           IndicadorTexto(
                             titulo: 'Servicios Abiertos',
-                            valor: '${datos.numServiciosAbiertos}',
+                            valor: '${almacen.numServiciosAbiertos}',
                           ),
                         ],
                       ),
-                      Card(
-                        child: SizedBox(
-                          height: 150,
-                          child: Center(
-                            child: Text('Filtros',
-                                style: Theme.of(context).textTheme.headline4),
-                          ),
-                        ),
+                      // Card(
+                      //   child: SizedBox(
+                      //     height: 150,
+                      //     child: Center(
+                      //       child: Text('Filtros',
+                      //           style: Theme.of(context).textTheme.headline4),
+                      //     ),
+                      //   ),
+                      // ),
+                      TablaDatos(
+                        etiquetasColumnas: almacen.etiquetasColumnas,
+                        datosRenglones: almacen.datosRenglones,
                       ),
-                      TablaDatos()
                     ],
                   ),
                 ),

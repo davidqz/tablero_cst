@@ -1,5 +1,21 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'servicio.g.dart';
+
+part 'modelo_datos_json.g.dart';
+
+// Clase que encapusla los datos leidos del archivo JSON.
+@JsonSerializable()
+class DatosJson {
+  final List<Servicio> servicios;
+
+  DatosJson({
+    required this.servicios,
+  });
+
+  factory DatosJson.fromJson(Map<String, dynamic> json) =>
+      _$DatosJsonFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DatosJsonToJson(this);
+}
 
 @JsonSerializable()
 class Servicio {
@@ -27,6 +43,7 @@ class Servicio {
 
   factory Servicio.fromJson(Map<String, dynamic> json) =>
       _$ServicioFromJson(json);
+
   Map<String, dynamic> toJson() => _$ServicioToJson(this);
 }
 
@@ -44,5 +61,6 @@ class Transaccion {
 
   factory Transaccion.fromJson(Map<String, dynamic> json) =>
       _$TransaccionFromJson(json);
+
   Map<String, dynamic> toJson() => _$TransaccionToJson(this);
 }

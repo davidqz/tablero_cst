@@ -1,0 +1,3420 @@
+{
+  "servicios": [
+    {
+      "idServicio": 1,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "EME Bioestadística",
+      "nombreLargo": "Especialidad en Métodos Estadísticos en Bioestadística",
+      "sedeResponsable": "Aguascalientes",
+      "areaVinculacionResponsable": "Unidad Aguascalientes",
+      "zonaInfluencia": "Estatal",
+      "cliente": {
+        "idCliente": 1,
+        "nombre": "Varios",
+        "sector": "Privado",
+        "giro": "",
+        "tamanioOrganizacion": "No aplica",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Aguascalientes",
+        "ciudad": "Aguascalientes"
+      },
+      "Finanzas": {
+        "montoVariable": 1,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 0.0,
+        "planeacionGastos": [
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 38000.0,
+            "mes": 10,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 1
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 220400.0,
+            "mes": 10,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 25000.0,
+            "mes": 10,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 25000.0,
+            "mes": 10,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 158000.0,
+            "mes": 10,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 22
+          }
+        ],
+        "ingresos": [
+          {
+            "montoSinIVA": 500.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 500.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 500.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 100.0,
+            "mes": 7,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 500.0,
+            "mes": 7,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          }
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2020-03-06",
+        "fechaFinProgramada": "2021-10-15",
+        "fechaInicioTecnicoProgramada": "2020-09-04",
+        "fechaFinTecnicoProgramada": "",
+        "fechaInicioReal": "",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2021-10-15",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+        {
+          "mes": 6,
+          "anyo": 2020,
+          "porcentajeAvance": 5
+        },
+        {
+          "mes": 7,
+          "anyo": 2020,
+          "porcentajeAvance": 7
+        },
+        {
+          "mes": 8,
+          "anyo": 2020,
+          "porcentajeAvance": 10
+        }
+      ],
+      "Personas": [
+        {
+          "idPersona": 11,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 30,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 33,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 54,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 66,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 71,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 99,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 128,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTA",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 154,
+          "delCIMAT": "1",
+          "puestoCategoria": "IAC",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 172,
+          "delCIMAT": "1",
+          "puestoCategoria": "Honorarios",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 192,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        },
+        {
+          "idPersona": 241,
+          "delCIMAT": "0",
+          "puestoCategoria": "Honorarios",
+          "horasTrabajadas": [
+            {
+              "mes": 6,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 7,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 5.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 2,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "EMED 2020",
+      "nombreLargo": "Especialidad en Métodos Estadísticos a Distancia",
+      "sedeResponsable": "Aguascalientes",
+      "areaVinculacionResponsable": "Unidad Aguascalientes",
+      "zonaInfluencia": "Estatal",
+      "cliente": {
+        "idCliente": 1,
+        "nombre": "Varios",
+        "sector": "Privado",
+        "giro": "",
+        "tamanioOrganizacion": "No aplica",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Aguascalientes",
+        "ciudad": "Aguascalientes"
+      },
+      "Finanzas": {
+        "montoVariable": 1,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 0.0,
+        "planeacionGastos": [
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 100000.0,
+            "mes": 6,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 7
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 160000.0,
+            "mes": 6,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 40000.0,
+            "mes": 6,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 11
+          }
+        ],
+        "ingresos": [
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 4,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 4,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 5,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 7,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 16000.0,
+            "mes": 7,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 89500.0,
+            "mes": 7,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 7591.8400000000001,
+            "mes": 7,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 2000.0,
+            "mes": 8,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          }
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2020-03-06",
+        "fechaFinProgramada": "2021-06-30",
+        "fechaInicioTecnicoProgramada": "2020-06-15",
+        "fechaFinTecnicoProgramada": "2020-06-30",
+        "fechaInicioReal": "",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2021-06-30",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+      ],
+      "Personas": [
+        {
+          "idPersona": 11,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 30,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 33,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 54,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 66,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 71,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 128,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTA",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 154,
+          "delCIMAT": "1",
+          "puestoCategoria": "IAC",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 172,
+          "delCIMAT": "1",
+          "puestoCategoria": "Honorarios",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 192,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 241,
+          "delCIMAT": "0",
+          "puestoCategoria": "Honorarios",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 3,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "Coopel. Curso Deep Learning",
+      "nombreLargo": "Curso Deep Learning",
+      "sedeResponsable": "Guanajuato",
+      "areaVinculacionResponsable": "Gerencia de Desarrollo de Software",
+      "zonaInfluencia": "Estatal",
+      "cliente": {
+        "idCliente": 2,
+        "nombre": "Coppel S.A. de C.V.",
+        "sector": "Privado",
+        "giro": "Comercio",
+        "tamanioOrganizacion": "Grande",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Sinaloa",
+        "ciudad": "Culiacán"
+      },
+      "Finanzas": {
+        "montoVariable": 0,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 228448.26999999999,
+        "planeacionGastos": [
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 41600.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 33600.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 5000.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 21480.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          }
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 1
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 2
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 3
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 4
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 5
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 6
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 7
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 8
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 9
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 10
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 11
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 12
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 13
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 15
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 16
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 18
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 20
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 1.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 1.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 1.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 2.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 24
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 1
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 2
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 3
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 4
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 5
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 6
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 7
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 8
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 9
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 10
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 11
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 12
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 13
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 15
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 16
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 18
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 20
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 1.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 1.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 1.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 2.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 24
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 1
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 2
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 3
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 4
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 5
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 6
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 7
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 8
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 9
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 10
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 11
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 12
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 13
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 15
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 16
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 18
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 20
+          },
+          {
+            "montoSinIVA": 1.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 1.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 1.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 1.2298,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 2.7799999999999998,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 500.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 1300.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 11,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 24
+          }
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2021-04-12",
+        "fechaFinProgramada": "2021-06-02",
+        "fechaInicioTecnicoProgramada": "2020-04-20",
+        "fechaFinTecnicoProgramada": "",
+        "fechaInicioReal": "",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2021-06-02",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+        {
+          "mes": 12,
+          "anyo": 2020,
+          "porcentajeAvance": 50
+        }
+      ],
+      "Personas": [
+        {
+          "idPersona": 41,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITC",
+          "horasTrabajadas": [
+            {
+              "mes": 12,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 50,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITA",
+          "horasTrabajadas": [
+            {
+              "mes": 12,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 68,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+            {
+              "mes": 12,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 93,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 107,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+            {
+              "mes": 12,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 133,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITB",
+          "horasTrabajadas": [
+            {
+              "mes": 12,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 169,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+            {
+              "mes": 12,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 174,
+          "delCIMAT": "1",
+          "puestoCategoria": "IAC",
+          "horasTrabajadas": [
+            {
+              "mes": 12,
+              "anyo": 2020,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 4,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "Inovacor Actualización de algoritmo",
+      "nombreLargo": "Actualización del algoritmo de conteo visual",
+      "sedeResponsable": "Guanajuato",
+      "areaVinculacionResponsable": "Gerencia de Matemáticas Industriales",
+      "zonaInfluencia": "Estatal",
+      "cliente": {
+        "idCliente": 3,
+        "nombre": "Inovacor S.A. de C.V.",
+        "sector": "Privado",
+        "giro": "Industria manufacturera",
+        "tamanioOrganizacion": "Mediana",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Querétaro",
+        "ciudad": "Querétaro"
+      },
+      "Finanzas": {
+        "montoVariable": 0,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 25000.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2020-05-22",
+        "fechaFinProgramada": "2020-08-28",
+        "fechaInicioTecnicoProgramada": "2020-05-22",
+        "fechaFinTecnicoProgramada": "2020-06-01",
+        "fechaInicioReal": "2020-05-22",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2020-08-28",
+        "solicitudesCambioFechaCierre": [
+          {
+            "fechaOriginal": "2020-06-05",
+            "fechaNueva": "2020-08-28",
+            "fechaSolicitud": "2020-08-28",
+            "estatusSolicitud": "A"
+          },
+          {
+            "fechaOriginal": "2020-08-28",
+            "fechaNueva": "2020-10-02",
+            "fechaSolicitud": "2020-09-25",
+            "estatusSolicitud": "R"
+          }
+        ]
+      },
+      "avances": [
+      ],
+      "Personas": [
+        {
+          "idPersona": 75,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTA",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 6,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "SIEMENS CAPACITACION 01",
+      "nombreLargo": "SERVICIOS DE CAPACITACIÓN EN TECNOLOGÍA SIEMENS",
+      "sedeResponsable": "Guanajuato",
+      "areaVinculacionResponsable": "Gerencia de Matemáticas Industriales",
+      "zonaInfluencia": "",
+      "cliente": {
+        "idCliente": 5,
+        "nombre": "Industrias Michelin S.A. DE C.V.",
+        "sector": "Privado",
+        "giro": "Servicios profesionales, científicos y técnicos",
+        "tamanioOrganizacion": "No aplica",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Querétaro",
+        "ciudad": "Querétaro"
+      },
+      "Finanzas": {
+        "montoVariable": 0,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 225516.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2017-06-05",
+        "fechaFinProgramada": "2020-03-16",
+        "fechaInicioTecnicoProgramada": "",
+        "fechaFinTecnicoProgramada": "",
+        "fechaInicioReal": "2017-07-24",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2017-08-11",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+      ],
+      "Personas": [
+        {
+          "idPersona": 95,
+          "delCIMAT": "1",
+          "puestoCategoria": "IAC",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 7,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "INEGI.MAEC",
+      "nombreLargo": "IMPARTICIÓN DEL PROGRAMA DE ETUDIOS DE NIVEL POSGRADO EN ANÁLISIS ESTADÍSTICO Y COMPUTACIÓN",
+      "sedeResponsable": "Monterrey",
+      "areaVinculacionResponsable": "Unidad Monterrey",
+      "zonaInfluencia": "Nacional",
+      "cliente": {
+        "idCliente": 6,
+        "nombre": "Instituto Nacional de Geografía y Estadística",
+        "sector": "Público",
+        "giro": "Actividades legislativas, gubernamentales, de impartición de justicia, organismos internacionales ",
+        "tamanioOrganizacion": "No aplica",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Aguascalientes",
+        "ciudad": "Aguascalientes"
+      },
+      "Finanzas": {
+        "montoVariable": 0,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 5000000.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+          {
+            "montoSinIVA": 10.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 1
+          },
+          {
+            "montoSinIVA": 10.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 2
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 3
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 4
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 5
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 6
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 7
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 8
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 9
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 10
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 11
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 12
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 13
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 15
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 16
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 18
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 20
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 2,
+            "anyo": 2021,
+            "idTipoConceptoIngresoEgreso": 24
+          }
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2019-06-28",
+        "fechaFinProgramada": "2023-01-31",
+        "fechaInicioTecnicoProgramada": "",
+        "fechaFinTecnicoProgramada": "",
+        "fechaInicioReal": "",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2023-01-31",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+        {
+          "mes": 1,
+          "anyo": 2021,
+          "porcentajeAvance": 10
+        },
+        {
+          "mes": 2,
+          "anyo": 2021,
+          "porcentajeAvance": 20
+        }
+      ],
+      "Personas": [
+        {
+          "idPersona": 5,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITC",
+          "horasTrabajadas": [
+            {
+              "mes": 1,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 20,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITC",
+          "horasTrabajadas": [
+            {
+              "mes": 1,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 37,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITA",
+          "horasTrabajadas": [
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 20.0
+            }
+          ]
+        },
+        {
+          "idPersona": 50,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITA",
+          "horasTrabajadas": [
+            {
+              "mes": 1,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 52,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITA",
+          "horasTrabajadas": [
+            {
+              "mes": 1,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 63,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+            {
+              "mes": 1,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 93,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 96,
+          "delCIMAT": "1",
+          "puestoCategoria": "CATEDRA",
+          "horasTrabajadas": [
+            {
+              "mes": 1,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 109,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITA",
+          "horasTrabajadas": [
+            {
+              "mes": 1,
+              "anyo": 2021,
+              "horasTrabajadas": 10.0
+            },
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 10.0
+            }
+          ]
+        },
+        {
+          "idPersona": 120,
+          "delCIMAT": "1",
+          "puestoCategoria": "CATEDRA",
+          "horasTrabajadas": [
+            {
+              "mes": 1,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        },
+        {
+          "idPersona": 139,
+          "delCIMAT": "1",
+          "puestoCategoria": "CATEDRA",
+          "horasTrabajadas": [
+            {
+              "mes": 1,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            },
+            {
+              "mes": 2,
+              "anyo": 2021,
+              "horasTrabajadas": 0.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 8,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "Comercialización de productos de instrumentación",
+      "nombreLargo": "Diseño, programación e ingeniería para la obtención de Diseños de Productos Electrónicos para la Industria de la manufactura, telecomunicaciones, transformación y agrícola, para aplicaciones de inspección, monitoreo y control.",
+      "sedeResponsable": "Guanajuato",
+      "areaVinculacionResponsable": "Coordinación de Servicios Tecnológicos",
+      "zonaInfluencia": "",
+      "cliente": {
+        "idCliente": 1,
+        "nombre": "Varios",
+        "sector": "Privado",
+        "giro": "",
+        "tamanioOrganizacion": "No aplica",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Aguascalientes",
+        "ciudad": "Aguascalientes"
+      },
+      "Finanzas": {
+        "montoVariable": 1,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 0.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+          {
+            "montoSinIVA": 25000.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          }
+        ],
+        "egresos": [
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 1
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 2
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 3
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 4
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 5
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 6
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 7
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 8
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 9
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 10
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 11
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 12
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 13
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 15
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 16
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 18
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 20
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          }
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2019-12-09",
+        "fechaFinProgramada": "2020-12-31",
+        "fechaInicioTecnicoProgramada": "",
+        "fechaFinTecnicoProgramada": "",
+        "fechaInicioReal": "",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2020-12-31",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+        {
+          "mes": 9,
+          "anyo": 2020,
+          "porcentajeAvance": 100
+        }
+      ],
+      "Personas": [
+        {
+          "idPersona": 95,
+          "delCIMAT": "1",
+          "puestoCategoria": "IAC",
+          "horasTrabajadas": [
+            {
+              "mes": 9,
+              "anyo": 2020,
+              "horasTrabajadas": 50.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 9,
+      "estatus": "Cerrado",
+      "interno": "0",
+      "nombreCorto": "Curso Introducción a MPI",
+      "nombreLargo": "Curso Introducción a MPI",
+      "sedeResponsable": "Guanajuato",
+      "areaVinculacionResponsable": "Ciencias de la Computación",
+      "zonaInfluencia": "Nacional",
+      "cliente": {
+        "idCliente": 1,
+        "nombre": "Varios",
+        "sector": "Privado",
+        "giro": "",
+        "tamanioOrganizacion": "No aplica",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Aguascalientes",
+        "ciudad": "Aguascalientes"
+      },
+      "Finanzas": {
+        "montoVariable": 1,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 0.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+          {
+            "montoSinIVA": 1724.1400000000001,
+            "mes": 8,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 1724.1400000000001,
+            "mes": 8,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 1724.1400000000001,
+            "mes": 8,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 1724.1400000000001,
+            "mes": 8,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          }
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2020-08-06",
+        "fechaFinProgramada": "2020-08-21",
+        "fechaInicioTecnicoProgramada": "2020-08-17",
+        "fechaFinTecnicoProgramada": "2020-08-21",
+        "fechaInicioReal": "2020-08-17",
+        "fechaCierreTecnico": "2020-08-21",
+        "fechaCierreModificada": "2020-08-21",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+        {
+          "mes": 8,
+          "anyo": 2020,
+          "porcentajeAvance": 100
+        }
+      ],
+      "Personas": [
+        {
+          "idPersona": 73,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 137,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITA",
+          "horasTrabajadas": [
+            {
+              "mes": 8,
+              "anyo": 2020,
+              "horasTrabajadas": 27.0
+            }
+          ]
+        },
+        {
+          "idPersona": 230,
+          "delCIMAT": "0",
+          "puestoCategoria": "Honorarios",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 11,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "SISAMEX. Incorporación Industrial",
+      "nombreLargo": "Desarrollo e implementación de métodos de aprendizaje automático adecuados y del estado del arte para el análisis y modelación de grandes volúmenes datos. Estos modelos incluyen aprendizaje supervisado y no supervisado bajo un esquema de industria 4.0",
+      "sedeResponsable": "Monterrey",
+      "areaVinculacionResponsable": "Unidad Monterrey",
+      "zonaInfluencia": "",
+      "cliente": {
+        "idCliente": 8,
+        "nombre": "Sistemas Automotrices de México S.A. de C.V.",
+        "sector": "Privado",
+        "giro": "Industria manufacturera",
+        "tamanioOrganizacion": "",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Nuevo León",
+        "ciudad": "General Escobedo"
+      },
+      "Finanzas": {
+        "montoVariable": 0,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 2000000.0,
+        "planeacionGastos": [
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 45124.0,
+            "mes": 10,
+            "anyo": 2019,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 4933.9700000000003,
+            "mes": 10,
+            "anyo": 2019,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 45124.0,
+            "mes": 11,
+            "anyo": 2019,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 45124.0,
+            "mes": 12,
+            "anyo": 2019,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 36180.669999999998,
+            "mes": 2,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 36180.669999999998,
+            "mes": 3,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 36180.669999999998,
+            "mes": 4,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 36180.669999999998,
+            "mes": 5,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 36180.669999999998,
+            "mes": 6,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "numVersionPlanGasto": 0,
+            "montoSinIVA": 36180.669999999998,
+            "mes": 7,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          }
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2018-03-15",
+        "fechaFinProgramada": "2020-07-16",
+        "fechaInicioTecnicoProgramada": "",
+        "fechaFinTecnicoProgramada": "",
+        "fechaInicioReal": "",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2020-03-16",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+      ],
+      "Personas": [
+        {
+          "idPersona": 20,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITC",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 12,
+      "estatus": "Abierto",
+      "interno": "1",
+      "nombreCorto": "",
+      "nombreLargo": "Soporte y Mantenimiento de aplicaciones activas 2019",
+      "sedeResponsable": "Guanajuato",
+      "areaVinculacionResponsable": "Gerencia de Desarrollo de Software",
+      "zonaInfluencia": "",
+      "cliente": {
+        "idCliente": 9,
+        "nombre": "Centro de Investigación en Matemáticas A.C.",
+        "sector": "Público",
+        "giro": "",
+        "tamanioOrganizacion": "",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Guanajuato",
+        "ciudad": "Guanajuato"
+      },
+      "Finanzas": {
+        "montoVariable": 1,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 0.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2019-01-01",
+        "fechaFinProgramada": "2019-12-31",
+        "fechaInicioTecnicoProgramada": "",
+        "fechaFinTecnicoProgramada": "",
+        "fechaInicioReal": "",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2019-12-31",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+      ],
+      "Personas": [
+        {
+          "idPersona": 74,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTA",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 81,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTA",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 93,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 13,
+      "estatus": "Abierto",
+      "interno": "1",
+      "nombreCorto": "",
+      "nombreLargo": "3a. Etapa de Sistema de navegación Autónoma del CIMAT",
+      "sedeResponsable": "Guanajuato",
+      "areaVinculacionResponsable": "Gerencia de Desarrollo de Software",
+      "zonaInfluencia": "",
+      "cliente": {
+        "idCliente": 9,
+        "nombre": "Centro de Investigación en Matemáticas A.C.",
+        "sector": "Público",
+        "giro": "",
+        "tamanioOrganizacion": "",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Guanajuato",
+        "ciudad": "Guanajuato"
+      },
+      "Finanzas": {
+        "montoVariable": 1,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 0.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2019-01-01",
+        "fechaFinProgramada": "2019-12-31",
+        "fechaInicioTecnicoProgramada": "",
+        "fechaFinTecnicoProgramada": "",
+        "fechaInicioReal": "",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2019-12-31",
+        "solicitudesCambioFechaCierre": [
+          {
+            "fechaOriginal": "2019-12-31",
+            "fechaNueva": "2020-02-03",
+            "fechaSolicitud": "2020-08-29",
+            "estatusSolicitud": "S"
+          }
+        ]
+      },
+      "avances": [
+      ],
+      "Personas": [
+        {
+          "idPersona": 48,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 14,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "Curso prueba 6 SIGMA",
+      "nombreLargo": "Curso de cpacitación 6 SIGMA prueba2020",
+      "sedeResponsable": "Zacatecas",
+      "areaVinculacionResponsable": "Unidad Zacatecas",
+      "zonaInfluencia": "",
+      "cliente": {
+        "idCliente": 8,
+        "nombre": "Sistemas Automotrices de México S.A. de C.V.",
+        "sector": "Privado",
+        "giro": "Industria manufacturera",
+        "tamanioOrganizacion": "",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Nuevo León",
+        "ciudad": "General Escobedo"
+      },
+      "Finanzas": {
+        "montoVariable": 0,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 600000.0,
+        "planeacionGastos": [
+          {
+            "numVersionPlanGasto": 2,
+            "montoSinIVA": 1500.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "numVersionPlanGasto": 2,
+            "montoSinIVA": 800.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "numVersionPlanGasto": 2,
+            "montoSinIVA": 1800.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "numVersionPlanGasto": 2,
+            "montoSinIVA": 15000.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          }
+        ],
+        "ingresos": [
+          {
+            "montoSinIVA": 100000.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 200000.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          },
+          {
+            "montoSinIVA": 300000.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 23
+          }
+        ],
+        "egresos": [
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 1
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 2
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 3
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 4
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 5
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 6
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 7
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 8
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 9
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 10
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 11
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 12
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 13
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 15
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 16
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 18
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 30000.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 20
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 2500.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 10000.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 9,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 1
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 2
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 3
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 4
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 5
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 6
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 7
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 8
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 9
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 10
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 11
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 12
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 13
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 14
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 15
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 16
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 17
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 18
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 30000.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 19
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 20
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 21
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          },
+          {
+            "montoSinIVA": 0.0,
+            "mes": 10,
+            "anyo": 2020,
+            "idTipoConceptoIngresoEgreso": 22
+          }
+        ],
+        "pagosProgramados": [
+          {
+            "fechaPago": "2020-09-02",
+            "montoSinIVA": 200000.0,
+            "fechaRegistro": "2020-10-02",
+            "fechaModificacion": "2020-10-02"
+          },
+          {
+            "fechaPago": "2020-12-07",
+            "montoSinIVA": 400000.0,
+            "fechaRegistro": "2020-10-02",
+            "fechaModificacion": "2020-10-02"
+          }
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2020-09-02",
+        "fechaFinProgramada": "2020-12-09",
+        "fechaInicioTecnicoProgramada": "2020-09-05",
+        "fechaFinTecnicoProgramada": "2020-12-05",
+        "fechaInicioReal": "2020-09-05",
+        "fechaCierreTecnico": "2020-10-07",
+        "fechaCierreModificada": "2020-10-07",
+        "solicitudesCambioFechaCierre": [
+          {
+            "fechaOriginal": "2020-12-09",
+            "fechaNueva": "2020-10-07",
+            "fechaSolicitud": "2020-10-07",
+            "estatusSolicitud": "A"
+          }
+        ]
+      },
+      "avances": [
+        {
+          "mes": 9,
+          "anyo": 2020,
+          "porcentajeAvance": 50
+        },
+        {
+          "mes": 10,
+          "anyo": 2020,
+          "porcentajeAvance": 100
+        }
+      ],
+      "Personas": [
+        {
+          "idPersona": 30,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+            {
+              "mes": 9,
+              "anyo": 2020,
+              "horasTrabajadas": 160.0
+            },
+            {
+              "mes": 10,
+              "anyo": 2020,
+              "horasTrabajadas": 160.0
+            }
+          ]
+        },
+        {
+          "idPersona": 71,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+            {
+              "mes": 9,
+              "anyo": 2020,
+              "horasTrabajadas": 160.0
+            },
+            {
+              "mes": 10,
+              "anyo": 2020,
+              "horasTrabajadas": 160.0
+            }
+          ]
+        },
+        {
+          "idPersona": 110,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITA",
+          "horasTrabajadas": [
+            {
+              "mes": 9,
+              "anyo": 2020,
+              "horasTrabajadas": 160.0
+            },
+            {
+              "mes": 10,
+              "anyo": 2020,
+              "horasTrabajadas": 160.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 15,
+      "estatus": "Abierto",
+      "interno": "0",
+      "nombreCorto": "Optimización F1 -Sistemas Atomotrices mexico -2020",
+      "nombreLargo": "Optimización de procesos de producción para la emplesa SAM.  Fase 1: Diagnóstico.",
+      "sedeResponsable": "Zacatecas",
+      "areaVinculacionResponsable": "Unidad Zacatecas",
+      "zonaInfluencia": "",
+      "cliente": {
+        "idCliente": 8,
+        "nombre": "Sistemas Automotrices de México S.A. de C.V.",
+        "sector": "Privado",
+        "giro": "Industria manufacturera",
+        "tamanioOrganizacion": "",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Nuevo León",
+        "ciudad": "General Escobedo"
+      },
+      "Finanzas": {
+        "montoVariable": 0,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 900000.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+          {
+            "fechaPago": "2020-09-21",
+            "montoSinIVA": 300000.0,
+            "fechaRegistro": "2020-10-02",
+            "fechaModificacion": "2020-10-02"
+          },
+          {
+            "fechaPago": "2020-12-01",
+            "montoSinIVA": 600000.0,
+            "fechaRegistro": "2020-10-02",
+            "fechaModificacion": "2020-10-02"
+          }
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2020-09-21",
+        "fechaFinProgramada": "2020-12-01",
+        "fechaInicioTecnicoProgramada": "2020-09-28",
+        "fechaFinTecnicoProgramada": "2020-12-01",
+        "fechaInicioReal": "2020-09-29",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2020-12-01",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+      ],
+      "Personas": [
+        {
+          "idPersona": 71,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 128,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTA",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 16,
+      "estatus": "Abierto",
+      "interno": "1",
+      "nombreCorto": "",
+      "nombreLargo": "Proyecto interno de Planificación de nuevo programa académico:  Maestría Tecnologías de la Información",
+      "sedeResponsable": "Zacatecas",
+      "areaVinculacionResponsable": "Unidad Zacatecas",
+      "zonaInfluencia": "",
+      "cliente": {
+        "idCliente": 9,
+        "nombre": "Centro de Investigación en Matemáticas A.C.",
+        "sector": "Público",
+        "giro": "",
+        "tamanioOrganizacion": "",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Guanajuato",
+        "ciudad": "Guanajuato"
+      },
+      "Finanzas": {
+        "montoVariable": 1,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 0.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2020-07-01",
+        "fechaFinProgramada": "2020-12-23",
+        "fechaInicioTecnicoProgramada": "2020-07-01",
+        "fechaFinTecnicoProgramada": "2020-12-23",
+        "fechaInicioReal": "2020-07-13",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2020-12-23",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+      ],
+      "Personas": [
+        {
+          "idPersona": 2,
+          "delCIMAT": "1",
+          "puestoCategoria": "ITB",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 30,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTC",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    },
+    {
+      "idServicio": 17,
+      "estatus": "Abierto",
+      "interno": "1",
+      "nombreCorto": "",
+      "nombreLargo": "Curso de Green Belt para el personal de la CST",
+      "sedeResponsable": "Zacatecas",
+      "areaVinculacionResponsable": "Unidad Zacatecas",
+      "zonaInfluencia": "",
+      "cliente": {
+        "idCliente": 9,
+        "nombre": "Centro de Investigación en Matemáticas A.C.",
+        "sector": "Público",
+        "giro": "",
+        "tamanioOrganizacion": "",
+        "pais": "Estados Unidos Mexicanos",
+        "estado": "Guanajuato",
+        "ciudad": "Guanajuato"
+      },
+      "Finanzas": {
+        "montoVariable": 0,
+        "idTipoMoneda": 1,
+        "precioSinIVA": 37500.0,
+        "planeacionGastos": [
+        ],
+        "ingresos": [
+        ],
+        "egresos": [
+        ],
+        "pagosProgramados": [
+        ]
+      },
+      "Procesos": {
+        "fechaInicioProgramada": "2020-09-21",
+        "fechaFinProgramada": "2020-09-25",
+        "fechaInicioTecnicoProgramada": "2020-09-21",
+        "fechaFinTecnicoProgramada": "2020-09-25",
+        "fechaInicioReal": "2020-09-21",
+        "fechaCierreTecnico": "",
+        "fechaCierreModificada": "2020-09-25",
+        "solicitudesCambioFechaCierre": [
+        ]
+      },
+      "avances": [
+      ],
+      "Personas": [
+        {
+          "idPersona": 71,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTB",
+          "horasTrabajadas": [
+          ]
+        },
+        {
+          "idPersona": 86,
+          "delCIMAT": "1",
+          "puestoCategoria": "TTA",
+          "horasTrabajadas": [
+          ]
+        }
+      ]
+    }
+  ],
+  "descriptores": {
+    "monedas": [
+      {
+        "idTipoMoneda": 1,
+        "tipoMoneda": "Peso Mexicano"
+      },
+      {
+        "idTipoMoneda": 2,
+        "tipoMoneda": "Dolar Americano"
+      },
+      {
+        "idTipoMoneda": 3,
+        "tipoMoneda": "Euro"
+      }
+    ],
+    "conceptosIngresosEgresos": [
+      {
+        "idTipoConceptoIngresoEgreso": 1,
+        "tipoConceptoIngresoEgreso": "Activos intangibles"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 2,
+        "tipoConceptoIngresoEgreso": "Alimentación de personas"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 3,
+        "tipoConceptoIngresoEgreso": "Apoyos"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 4,
+        "tipoConceptoIngresoEgreso": "Congresos y convenciones"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 5,
+        "tipoConceptoIngresoEgreso": "Herramienta, refacciones y accesorios de cómputo"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 6,
+        "tipoConceptoIngresoEgreso": "Herramienta, refacciones y accesorios en general"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 7,
+        "tipoConceptoIngresoEgreso": "Materiales y útiles de administración"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 8,
+        "tipoConceptoIngresoEgreso": "Materiales y utiles de enseñanza"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 9,
+        "tipoConceptoIngresoEgreso": "Materiales y utiles de impresión y reproducción"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 10,
+        "tipoConceptoIngresoEgreso": "Materiales y utiles de investigación"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 11,
+        "tipoConceptoIngresoEgreso": "Mobiliario y equipo de administración"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 12,
+        "tipoConceptoIngresoEgreso": "Mobiliario y equipo de recreación y educativo"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 13,
+        "tipoConceptoIngresoEgreso": "Otras asesorías y servicios"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 14,
+        "tipoConceptoIngresoEgreso": "Otros impuestos y derechos"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 15,
+        "tipoConceptoIngresoEgreso": "Otros servicios"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 16,
+        "tipoConceptoIngresoEgreso": "Otros servicios comerciales"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 17,
+        "tipoConceptoIngresoEgreso": "Remuneraciones"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 18,
+        "tipoConceptoIngresoEgreso": "Servicio básico"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 19,
+        "tipoConceptoIngresoEgreso": "Subcontratación"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 20,
+        "tipoConceptoIngresoEgreso": "Subsidios"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 21,
+        "tipoConceptoIngresoEgreso": "Transporte"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 22,
+        "tipoConceptoIngresoEgreso": "Viáticos"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 23,
+        "tipoConceptoIngresoEgreso": "Pago"
+      },
+      {
+        "idTipoConceptoIngresoEgreso": 24,
+        "tipoConceptoIngresoEgreso": "Gastos Históricos"
+      }
+    ]
+  }
+}

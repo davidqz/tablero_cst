@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
-import 'modelos/manejador_datos.dart';
 import 'pantallas/pantalla_autentificacion.dart';
 import 'pantallas/pantalla_inicio.dart';
+import 'utilidades/almacen_datos.dart';
 import 'utilidades/constantes.dart';
 import 'utilidades/rutas.dart';
 
@@ -18,16 +18,16 @@ class TableroCstApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+        // Agregar las clases proovedoras que se deseen tener disponibles
+        // en el arbol entero de widgets.
         providers: [
-          // Agregar las clases proovedoras que se deseen tener disponibles
-          // en todo el arbol de widgets.
-          ChangeNotifierProvider(create: (_) => ManejadorDatos()),
+          ChangeNotifierProvider(create: (_) => AlmacenDatos()),
         ],
         child: MaterialApp(
           title: kTituloPaginaWeb,
           debugShowCheckedModeBanner: true,
-          initialRoute: rutaAutentificacion,
-          // initialRoute: rutaPrincipal,
+          // initialRoute: rutaAutentificacion,
+          initialRoute: rutaPrincipal,
           routes: <String, WidgetBuilder>{
             rutaPrincipal: (context) => PantallaInicio(),
             rutaAutentificacion: (context) => PantallaAutentificacion(),

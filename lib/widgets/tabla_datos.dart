@@ -1,80 +1,85 @@
 import 'package:flutter/material.dart';
 
 class TablaDatos extends StatefulWidget {
-  TablaDatos();
+  final Iterable<String> etiquetasColumnas;
+  final Iterable<Iterable<String>> datosRenglones;
+
+  const TablaDatos({
+    required this.etiquetasColumnas,
+    required this.datosRenglones,
+  });
 
   @override
   _TablaDatosState createState() => _TablaDatosState();
 }
 
-class _TablaDatosState extends State<TablaDatos> {
-  final _columnas = const <DataColumn>[
-    DataColumn(
-      label: Text(
-        'Clave',
-        // style: TextStyle(fontStyle: FontStyle.italic),
-      ),
-    ),
-    DataColumn(
-      label: Text(
-        'Nombre',
-        // style: TextStyle(fontStyle: FontStyle.italic),
-      ),
-    ),
-    DataColumn(
-      label: Text(
-        'Sede',
-        // style: TextStyle(fontStyle: FontStyle.italic),
-      ),
-    ),
-  ];
+class _TablaDatosState extends State<TablaDatos> with RestorationMixin {
+  final RestorableInt _rowsPerPage =
+      RestorableInt(PaginatedDataTable.defaultRowsPerPage);
 
-  final _serviciosDataSource = _ServiciosDataSource();
+  @override
+  String get restorationId => 'tabla_datos';
+
+  @override
+  void restoreState(_, __) {
+    registerForRestoration(_rowsPerPage, 'rows_per_page');
+  }
 
   @override
   void dispose() {
-    _serviciosDataSource.dispose();
+    _rowsPerPage.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8.0),
-      child: Card(
-        child: PaginatedDataTable(
-          header: Text('Servicios'),
-          rowsPerPage: 5,
-          columns: _columnas,
-          source: _serviciosDataSource,
-        ),
-      ),
+    final columnas = widget.etiquetasColumnas
+        .map((etiqueta) => DataColumn(
+              label: Text(
+                etiqueta,
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              numeric: false,
+            ))
+        .toList(growable: false);
+
+    return PaginatedDataTable(
+      header: Text('Servicios'),
+      rowsPerPage: _rowsPerPage.value,
+      onRowsPerPageChanged: (value) {
+        setState(() {
+          _rowsPerPage.value = value!;
+        });
+      },
+      availableRowsPerPage: [5, 10, 20, 50],
+      columns: columnas,
+      source: _OrigenTablaDatos(widget.datosRenglones),
     );
   }
 }
 
-class _ServiciosDataSource extends DataTableSource {
-  _ServiciosDataSource();
+class _OrigenTablaDatos extends DataTableSource {
+  final Iterable<Iterable<String>> datosRenglones;
+  late List<List<DataCell>> _renglones;
 
-  @override
-  DataRow getRow(int index) {
-    if (index == 0) {
-      return DataRow.byIndex(index: 0, cells: [
-        DataCell(Text('20410')),
-        DataCell(Text('EME Bioestadística')),
-        DataCell(Text('Aguascalientes')),
-      ]);
-    } else {
-      return DataRow.byIndex(index: 1, cells: [
-        DataCell(Text('20411')),
-        DataCell(Text('EMED 2020')),
-        DataCell(Text('Aguascalientes')),
-      ]);
-    }
+  _OrigenTablaDatos(this.datosRenglones) {
+    _renglones = datosRenglones
+        .map((datosRenglon) => datosRenglon
+            .map((dato) => DataCell(Text(dato)))
+            .toList(growable: false))
+        .toList(growable: false);
   }
 
   @override
-  int get rowCount => 2;
+  DataRow getRow(int index) => DataRow.byIndex(
+        index: index,
+        cells: _renglones[index],
+      );
+
+  @override
+  int get rowCount => datosRenglones.length;
 
   @override
   bool get isRowCountApproximate => false;
