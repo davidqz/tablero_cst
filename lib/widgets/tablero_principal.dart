@@ -45,8 +45,11 @@ class TableroPrincipal extends StatelessWidget {
                       //   ),
                       // ),
                       TablaDatos(
-                        etiquetasColumnas: almacen.etiquetasColumnas,
+                        titulo: 'Servicios',
+                        encabezadosColumnas:
+                            almacen.encabezadosColumnasTablaServicios,
                         datosRenglones: almacen.datosRenglones,
+                        columnasNumericas: ['Monto'],
                       ),
                     ],
                   ),
