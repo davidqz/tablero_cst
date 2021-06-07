@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:intl/intl.dart' show NumberFormat;
 
 import 'constantes.dart';
 import 'modelo_datos_json.dart';
@@ -11,6 +12,7 @@ class AlmacenDatos extends ChangeNotifier {
   // Inicializamos _datos con una lista de servicios vacia para evitar problemas
   // con null al cargar la applicacion.
   DatosJson _datos = DatosJson(servicios: []);
+  final _formatoMoneda = NumberFormat.simpleCurrency();
 
   AlmacenDatos() {
     _cargarArchivoJson();
@@ -25,7 +27,7 @@ class AlmacenDatos extends ChangeNotifier {
     notifyListeners();
   }
 
-  final _etiquetasColumnasTablaServicios = {
+  final _encabezadosColumnasTablaServicios = {
     'idServicio': 'ID',
     'clave': 'Clave',
     'estatus': 'Estatus',
@@ -36,15 +38,19 @@ class AlmacenDatos extends ChangeNotifier {
     'sede': 'Sede Responsable',
   };
 
-  Iterable<String> get etiquetasColumnas =>
-      _etiquetasColumnasTablaServicios.values;
+  final encabezadosCulumnasNumericos = [
+    'Monto',
+  ];
+
+  Iterable<String> get encabezadosColumnasTablaServicios =>
+      _encabezadosColumnasTablaServicios.values;
 
   Iterable<Iterable<String>> get datosRenglones => servicios.map((servicio) => [
         servicio.idServicio,
         servicio.clave,
         servicio.estatus,
         servicio.nombreCorto,
-        servicio.montoProyecto.toString(),
+        _formatoMoneda.format(servicio.montoProyecto),
         servicio.sede,
       ]);
 
