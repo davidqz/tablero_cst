@@ -29,17 +29,17 @@ class AlmacenDatos extends ChangeNotifier {
 
   final _encabezadosColumnasTablaServicios = {
     'idServicio': 'ID',
-    'clave': 'Clave',
-    'estatus': 'Estatus',
     'nombreCorto': 'Nombre',
-    'montoProyecto': 'Monto',
-    // 'ingresos' : 'Ingresos',
-    // 'gastos' : 'Gastos',
-    'sede': 'Sede Responsable',
+    'areaResponsable': 'Area Responsable',
+    'estatus': 'Estatus',
+    'alcance': 'Alcance',
+    'cliente': 'Cliente',
+    'fechaInicioProgramada': 'Fecha de Inicio',
+    'fechaFinProgramada': 'Fecha de Fin',
   };
 
   final encabezadosCulumnasNumericos = [
-    'Monto',
+    // 'Monto',
   ];
 
   Iterable<String> get encabezadosColumnasTablaServicios =>
@@ -47,11 +47,14 @@ class AlmacenDatos extends ChangeNotifier {
 
   Iterable<Iterable<String>> get datosRenglones => servicios.map((servicio) => [
         servicio.idServicio,
-        servicio.clave,
-        servicio.estatus,
         servicio.nombreCorto,
-        _formatoMoneda.format(servicio.montoProyecto),
-        servicio.sede,
+        servicio.areaResponsable,
+        servicio.estatus,
+        servicio.alcance,
+        servicio.cliente.nombre,
+        servicio.fechaInicioProgramada,
+        servicio.fechaFinProgramada,
+        // _formatoMoneda.format(servicio.montoProyecto),
       ]);
 
   List<Servicio> get servicios => _datos.servicios;
@@ -65,11 +68,11 @@ class AlmacenDatos extends ChangeNotifier {
   int get numServiciosAbiertos =>
       servicios.where((s) => s.estatus == 'Abierto').length;
 
-  double get montosTotales {
-    var suma = 0.0;
-    for (var servicio in servicios) {
-      suma += servicio.montoProyecto;
-    }
-    return suma;
-  }
+  // double get montosTotales {
+  //   var suma = 0.0;
+  //   for (var servicio in servicios) {
+  //     suma += servicio.montoProyecto;
+  //   }
+  //   return suma;
+  // }
 }

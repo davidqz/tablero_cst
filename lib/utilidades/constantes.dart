@@ -10,13 +10,5 @@ const kColorFondo = Color(0xFFE5E5E5);
 // Texto que aparece como titulo de la pagina web.
 const kTituloPaginaWeb = 'Tablero de Indicadores CST';
 
-// simple_query utiliza un modelo mas simple para facilitar las pruebas
-const kRutaDatosJson = 'datos/simple_query.json';
-
-// const kRutaDatosJson = 'datos/datos_sgp_desarrollo_v1.json';
-// Para utilizar el archivo datos_sgp_desarrollo_v1.json se necesita
-// actualizar las clases Datos y Servicio en el directorio modelos/
-// y ejecutar la herramienta de generacion del codigo de lectura e
-// interpretacion que concuerde con la estructura del archivo JSON.
-//
-// $ flutter pub run build_runner build
+// Ruta y nombre de archivo JSON de origen.
+const kRutaDatosJson = 'datos/datos_sgp_desarrollo_v1.json';
