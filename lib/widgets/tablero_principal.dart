@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../utilidades/almacen_datos.dart';
 import 'indicador_texto.dart';
-import 'tabla_datos.dart';
+import 'tabla_de_columnas.dart';
 
 class TableroPrincipal extends StatelessWidget {
   const TableroPrincipal();
@@ -35,21 +35,11 @@ class TableroPrincipal extends StatelessWidget {
                           ),
                         ],
                       ),
-                      // Card(
-                      //   child: SizedBox(
-                      //     height: 150,
-                      //     child: Center(
-                      //       child: Text('Filtros',
-                      //           style: Theme.of(context).textTheme.headline4),
-                      //     ),
-                      //   ),
-                      // ),
-                      TablaDatos(
+                      TablaDeColumnas(
                         titulo: 'Servicios',
-                        encabezadosColumnas:
-                            almacen.encabezadosColumnasTablaServicios,
-                        datosRenglones: almacen.datosRenglones,
-                        // columnasNumericas: almacen.encabezadosCulumnasNumericos,
+                        datosTabla: almacen.datosTablaServicios,
+                        encabezadosColumna:
+                            almacen.datosTablaServicios.encabezadosColumnas,
                       ),
                     ],
                   ),

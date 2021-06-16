@@ -1,0 +1,12 @@
+# https://github.com/google/json_serializable.dart/tree/master/json_serializable#build-configuration
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          checked: true
+          create_to_json: false
+          disallow_unrecognized_keys: true
+        enabled: true
+          generate_for:
+            - "lib/utilidades/modelo_datos.json.dart"

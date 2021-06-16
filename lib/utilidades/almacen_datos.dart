@@ -3,16 +3,17 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:intl/intl.dart' show NumberFormat;
 
 import 'constantes.dart';
+import 'datos_tabla_servicios.dart';
 import 'modelo_datos_json.dart';
 
 class AlmacenDatos extends ChangeNotifier {
   // Inicializamos _datos con una lista de servicios vacia para evitar problemas
   // con null al cargar la applicacion.
   DatosJson _datos = DatosJson(servicios: []);
-  final _formatoMoneda = NumberFormat.simpleCurrency();
+
+  late DatosTablaServicios datosTablaServicios;
 
   AlmacenDatos() {
     _cargarArchivoJson();
@@ -24,42 +25,20 @@ class AlmacenDatos extends ChangeNotifier {
         await rootBundle.loadString(kRutaDatosJson, cache: false);
     final mapa = json.decode(jsonString) as Map<String, dynamic>;
     _datos = DatosJson.fromJson(mapa);
+    _crearTablas();
     notifyListeners();
   }
 
-  final _encabezadosColumnasTablaServicios = {
-    'idServicio': 'ID',
-    'nombreCorto': 'Nombre',
-    'areaResponsable': 'Area Responsable',
-    'estatus': 'Estatus',
-    'alcance': 'Alcance',
-    'cliente': 'Cliente',
-    'fechaInicioProgramada': 'Fecha de Inicio',
-    'fechaFinProgramada': 'Fecha de Fin',
-  };
+  void _crearTablas() {
+    datosTablaServicios = DatosTablaServicios(servicios: servicios);
+    _datosListos = true;
+  }
 
-  final encabezadosCulumnasNumericos = [
-    // 'Monto',
-  ];
+  bool _datosListos = false;
 
-  Iterable<String> get encabezadosColumnasTablaServicios =>
-      _encabezadosColumnasTablaServicios.values;
-
-  Iterable<Iterable<String>> get datosRenglones => servicios.map((servicio) => [
-        servicio.idServicio,
-        servicio.nombreCorto,
-        servicio.areaResponsable,
-        servicio.estatus,
-        servicio.alcance,
-        servicio.cliente.nombre,
-        servicio.fechaInicioProgramada,
-        servicio.fechaFinProgramada,
-        // _formatoMoneda.format(servicio.montoProyecto),
-      ]);
+  get datosListos => _datosListos;
 
   List<Servicio> get servicios => _datos.servicios;
-
-  bool get almacenEstaVacio => servicios.isEmpty;
 
   int get totalServicios => servicios.length;
 

@@ -18,14 +18,14 @@ class BannerSuperior extends StatelessWidget {
         Column(
           children: [
             Text(
-              'Tablero de Indicadores',
+              'Tablero de Control',
               style: Theme.of(context)
                   .textTheme
                   .headline4!
                   .copyWith(color: kColorSecundario),
             ),
-            Text('Coordinación de Servicios Tecnológicos',
-                style: Theme.of(context).textTheme.headline6),
+            // Text('Coordinación de Servicios Tecnológicos',
+            //     style: Theme.of(context).textTheme.headline6),
           ],
         ),
         Padding(

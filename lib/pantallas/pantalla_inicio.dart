@@ -13,9 +13,9 @@ class PantallaInicio extends StatelessWidget {
       body: Column(children: [
         BannerSuperior(),
         Expanded(
-          child: Provider.of<AlmacenDatos>(context).almacenEstaVacio
-              ? Center(child: CircularProgressIndicator())
-              : TableroPrincipal(),
+          child: Provider.of<AlmacenDatos>(context).datosListos
+              ? TableroPrincipal()
+              : Center(child: CircularProgressIndicator()),
         ),
       ]),
     );

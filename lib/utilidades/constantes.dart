@@ -11,4 +11,4 @@ const kColorFondo = Color(0xFFE5E5E5);
 const kTituloPaginaWeb = 'Tablero de Indicadores CST';
 
 // Ruta y nombre de archivo JSON de origen.
-const kRutaDatosJson = 'datos/datos_sgp_desarrollo_v1.json';
+const kRutaDatosJson = 'datos/datos_sgp_desarrollo_v2.json';
