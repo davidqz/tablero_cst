@@ -4,6 +4,8 @@ import '../widgets/banner_superior.dart';
 import '../widgets/formulario_autentificacion.dart';
 
 class PantallaAutentificacion extends StatelessWidget {
+  const PantallaAutentificacion();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

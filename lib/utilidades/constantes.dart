@@ -8,7 +8,7 @@ const kColorSecundario = Color(0xFF7F344E);
 const kColorFondo = Color(0xFFE5E5E5);
 
 // Texto que aparece como titulo de la pagina web.
-const kTituloPaginaWeb = 'Tablero de Indicadores CST';
+const kTituloPaginaWeb = 'Tablero de indicadores CST';
 
 // Ruta y nombre de archivo JSON de origen.
 const kRutaDatosJson = 'datos/datos_sgp_desarrollo_v2.json';

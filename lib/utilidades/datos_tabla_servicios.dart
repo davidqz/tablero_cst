@@ -7,22 +7,18 @@ final _formatoMoneda = NumberFormat.simpleCurrency();
 final _formatoPorcentaje = NumberFormat.percentPattern();
 
 class DatosTablaServicios extends DataTableSource {
-  final List<DataColumn> _encabezadosColumnas = [];
-  late List<List<DataCell>> _renglones;
-
   // Para cada columna que se desee visualizar, incluir en el siguiente mapa un
   // elemento donde la llave sea el texto que se usara en el encabezado y el
-  // valor sea un booleano para indicar su la columna es numerica y por lo
-  // tanto el contenido de sus celdas se alineara hacia la derecha.
+  // valor sea un booleano para indicar si la columna es numerica y por lo
+  // tanto el contenido de sus celdas se alinea hacia la derecha.
   final _mapeoEncabezadosColumnas = {
     'IDServicio': false,
     'Estatus': false,
+    'EsInterno': false,
     'Nombre': false,
     'Sede Responsable': false,
-    'Area de Vinculación': false,
-    'Zona de influencia': false,
     'Cliente': false,
-    'Monto': true, // Valor numerico (moneda)
+    'Monto': true,
     'Ingresos totales': true,
     'Egresos totales': true,
     'Avance': true,
@@ -32,33 +28,21 @@ class DatosTablaServicios extends DataTableSource {
     return [
       servicio.idServicio.toString(),
       servicio.estatus,
+      servicio.esInterno ? 'Interno' : 'Externo',
       servicio.nombreCorto,
       servicio.sedeResponsable,
-      servicio.areaVinculacionResponsable,
-      servicio.zonaInfluencia,
       servicio.cliente.nombre,
       _formatoMoneda.format(servicio.finanzas.precioSinIVA),
       _formatoMoneda.format(servicio.finanzas.totalIngresos),
-      _formatoMoneda.format(servicio.finanzas.totalIngresos),
+      _formatoMoneda.format(servicio.finanzas.totalEgresos),
       _formatoPorcentaje.format(servicio.ultimoAvanceReportado),
     ];
   }
 
-  List<DataCell> _crearRenglones({required final List<String> textosCeldas}) {
-    return textosCeldas
-        .map((textoCelda) => DataCell(Text(textoCelda)))
-        .toList(growable: false);
-  }
-
   DatosTablaServicios({required final List<Servicio> servicios}) {
-    _renglones = servicios.map((servicio) {
-      return _crearRenglones(
-        textosCeldas: _convertirEnListaDeStrings(servicio: servicio),
-      );
-    }).toList(growable: false);
-
+    actualizarServicios(servicios);
     _mapeoEncabezadosColumnas.forEach((texto, esNumerico) {
-      _encabezadosColumnas.add(DataColumn(
+      encabezadosColumnas.add(DataColumn(
         label: Text(
           texto,
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -68,13 +52,27 @@ class DatosTablaServicios extends DataTableSource {
     });
   }
 
-  List<DataColumn> get encabezadosColumnas => _encabezadosColumnas;
+  void actualizarServicios(Iterable<Servicio> servicios) {
+    _renglones = servicios
+        .map((servicio) => _crearRenglones(
+              textosCeldas: _convertirEnListaDeStrings(servicio: servicio),
+            ))
+        .toList(growable: false);
+    notifyListeners();
+  }
+
+  List<DataCell> _crearRenglones({required final List<String> textosCeldas}) {
+    return textosCeldas
+        .map((textoCelda) => DataCell(Text(textoCelda)))
+        .toList(growable: false);
+  }
+
+  final List<DataColumn> encabezadosColumnas = [];
+  late List<List<DataCell>> _renglones;
 
   @override
   DataRow getRow(int index) => DataRow.byIndex(
-        index: index,
-        cells: _renglones[index],
-      );
+      index: index, cells: _renglones[index], onSelectChanged: null);
 
   @override
   int get rowCount => _renglones.length;

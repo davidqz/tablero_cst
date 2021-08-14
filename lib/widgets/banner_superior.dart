@@ -12,27 +12,25 @@ class BannerSuperior extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Image(
             image: AssetImage('imagenes/logo_conacyt.png'),
-            height: 80,
+            height: 70,
           ),
         ),
         Column(
           children: [
             Text(
-              'Tablero de Control',
+              kTituloPaginaWeb,
               style: Theme.of(context)
                   .textTheme
                   .headline4!
                   .copyWith(color: kColorSecundario),
             ),
-            // Text('Coordinación de Servicios Tecnológicos',
-            //     style: Theme.of(context).textTheme.headline6),
           ],
         ),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: Image(
             image: AssetImage('imagenes/logo_cimat.png'),
-            height: 80,
+            height: 70,
           ),
         ),
       ],

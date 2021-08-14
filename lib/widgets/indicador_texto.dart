@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class IndicadorTexto extends StatelessWidget {
-  IndicadorTexto({required this.titulo, required this.valor});
+  IndicadorTexto({required this.etiqueta, required this.texto});
 
-  final String titulo;
-  final String valor;
+  final String etiqueta;
+  final String texto;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -14,18 +15,19 @@ class IndicadorTexto extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              titulo,
+              etiqueta,
               style: Theme.of(context).textTheme.bodyText1,
             ),
             Card(
               margin: EdgeInsets.symmetric(vertical: 4, horizontal: 0),
+              elevation: 2,
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                   vertical: 8.0,
                   horizontal: 16.0,
                 ),
                 child: Text(
-                  valor,
+                  texto,
                   style: Theme.of(context).textTheme.headline5,
                 ),
               ),

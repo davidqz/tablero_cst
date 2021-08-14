@@ -17,15 +17,20 @@ class _FormularioAutentificacionState extends State<FormularioAutentificacion> {
   void _autentficarUsuario() {
     var usuario = _controladorTextoUsuario.text;
     var contrasena = _controladorTextoContrasena.text;
+    _limpiarFormulario();
 
-    // TODO: Implementar autentificacion real
+    // TODO: Implementar autentificacion
     if (usuario == 'admin' && contrasena == '1234') {
       print('Usuario: $usuario autentificado correctamente');
       Navigator.of(context).pushNamed(rutaPrincipal);
     } else {
       print('Usuario o contraseña invalidos');
-      _controladorTextoContrasena.clear();
     }
+  }
+
+  void _limpiarFormulario() {
+    _controladorTextoUsuario.clear();
+    _controladorTextoContrasena.clear();
   }
 
   @override
@@ -37,6 +42,7 @@ class _FormularioAutentificacionState extends State<FormularioAutentificacion> {
           Padding(
             padding: EdgeInsets.all(8.0),
             child: TextField(
+              autofocus: true,
               textInputAction: TextInputAction.next,
               controller: _controladorTextoUsuario,
               decoration: InputDecoration(

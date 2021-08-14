@@ -9,12 +9,6 @@ import 'datos_tabla_servicios.dart';
 import 'modelo_datos_json.dart';
 
 class AlmacenDatos extends ChangeNotifier {
-  // Inicializamos _datos con una lista de servicios vacia para evitar problemas
-  // con null al cargar la applicacion.
-  DatosJson _datos = DatosJson(servicios: []);
-
-  late DatosTablaServicios datosTablaServicios;
-
   AlmacenDatos() {
     _cargarArchivoJson();
   }
@@ -25,33 +19,92 @@ class AlmacenDatos extends ChangeNotifier {
         await rootBundle.loadString(kRutaDatosJson, cache: false);
     final mapa = json.decode(jsonString) as Map<String, dynamic>;
     _datos = DatosJson.fromJson(mapa);
-    _crearTablas();
+    _datosListos = true;
+    datosTablaServicios = DatosTablaServicios(servicios: _datos.servicios);
+    _calcularIndicadores();
+  }
+
+  void agregarFiltro(String nombre, bool seleccionado) {
+    if (seleccionado) {
+      _filtros.add(nombre);
+    } else {
+      _filtros.remove(nombre);
+    }
+
+    aplicarFiltros();
+  }
+
+  void aplicarFiltros() {
+    _serviciosFiltrados =
+        _datos.servicios.where((s) => _filtros.contains(s.sedeResponsable));
+    datosTablaServicios.actualizarServicios(_serviciosFiltrados);
+    _calcularIndicadores();
+  }
+
+  void reestablecerFiltros() {
+    _filtros.clear();
+    datosTablaServicios.actualizarServicios(_datos.servicios);
+    _calcularIndicadores();
+  }
+
+  void _calcularIndicadores() {
+    final servicios = _filtros.isEmpty ? _datos.servicios : _serviciosFiltrados;
+    _numServicios = servicios.length;
+    _numServiciosAbiertos = 0;
+    _numServiciosInternos = 0;
+    _sumaMontos = 0;
+    _sumaIngresos = 0;
+    _sumaEgresos = 0;
+    for (var servicio in servicios) {
+      _numServiciosAbiertos += servicio.estatus == 'Abierto' ? 1 : 0;
+      _numServiciosInternos += servicio.esInterno ? 1 : 0;
+      _sumaMontos += servicio.finanzas.precioSinIVA;
+      _sumaIngresos += servicio.finanzas.totalIngresos;
+      _sumaEgresos += servicio.finanzas.totalEgresos;
+    }
     notifyListeners();
   }
 
-  void _crearTablas() {
-    datosTablaServicios = DatosTablaServicios(servicios: servicios);
-    _datosListos = true;
-  }
+  late DatosJson _datos;
+  late DatosTablaServicios datosTablaServicios;
 
   bool _datosListos = false;
 
-  get datosListos => _datosListos;
+  bool get datosListos => _datosListos;
 
-  List<Servicio> get servicios => _datos.servicios;
+  final _filtros = [];
+  Iterable<Servicio> _serviciosFiltrados = [];
 
-  int get totalServicios => servicios.length;
+  List<Moneda> get monedas => _datos.descriptores.monedas;
 
-  int get numServiciosInternos => servicios.where((s) => s.interno == 1).length;
+  List<ConceptoIngresoEgreso> get conceptos =>
+      _datos.descriptores.conceptosIngresosEgresos;
 
-  int get numServiciosAbiertos =>
-      servicios.where((s) => s.estatus == 'Abierto').length;
+  // -----------------------------------------------------------
+  // ------------------ Indicadores ----------------------------
+  // -----------------------------------------------------------
 
-  // double get montosTotales {
-  //   var suma = 0.0;
-  //   for (var servicio in servicios) {
-  //     suma += servicio.montoProyecto;
-  //   }
-  //   return suma;
-  // }
+  int _numServicios = 0;
+
+  int get numServicios => _numServicios;
+
+  int _numServiciosAbiertos = 0;
+
+  int get numServiciosAbiertos => _numServiciosAbiertos;
+
+  int _numServiciosInternos = 0;
+
+  int get numServiciosInternos => _numServiciosInternos;
+
+  double _sumaMontos = 0.0;
+
+  double get sumaMontos => _sumaMontos;
+
+  double _sumaIngresos = 0.0;
+
+  double get sumaIngresos => _sumaIngresos;
+
+  double _sumaEgresos = 0.0;
+
+  double get sumaEgresos => _sumaEgresos;
 }

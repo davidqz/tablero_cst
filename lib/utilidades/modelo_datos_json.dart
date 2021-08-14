@@ -15,11 +15,11 @@ part 'modelo_datos_json.g.dart';
 @JsonSerializable()
 class DatosJson {
   final List<Servicio> servicios;
-  final Descriptores? descriptores;
+  final Descriptores descriptores;
 
   DatosJson({
-    required this.servicios,
-    this.descriptores,
+    this.servicios = const [],
+    this.descriptores = const Descriptores(),
   });
 
   factory DatosJson.fromJson(Map<String, dynamic> json) =>
@@ -60,6 +60,8 @@ class Servicio {
     required this.avances,
     required this.personas,
   });
+
+  bool get esInterno => interno == '1';
 
   double get ultimoAvanceReportado {
     if (avances.isEmpty) {
@@ -308,8 +310,8 @@ class Descriptores {
   final List<ConceptoIngresoEgreso> conceptosIngresosEgresos;
 
   const Descriptores({
-    required this.monedas,
-    required this.conceptosIngresosEgresos,
+    this.monedas = const [],
+    this.conceptosIngresosEgresos = const [],
   });
 
   factory Descriptores.fromJson(Map<String, dynamic> json) =>
