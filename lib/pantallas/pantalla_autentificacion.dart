@@ -10,21 +10,24 @@ class PantallaAutentificacion extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: Column(
-        children: [
-          BannerSuperior(),
-          SizedBox(height: 50),
-          SizedBox(
-            width: 400,
-            child: Card(
-              color: Colors.grey[100],
-              child: Padding(
-                padding: const EdgeInsets.all(32.0),
-                child: FormularioAutentificacion(),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            BannerSuperior(),
+            SizedBox(height: 50),
+            SizedBox(
+              width: 400,
+              child: Card(
+                color: Colors.grey[100],
+                child: Padding(
+                  padding: const EdgeInsets.all(32.0),
+                  child: FormularioAutentificacion(),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

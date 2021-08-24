@@ -3,8 +3,9 @@ import 'package:provider/provider.dart';
 
 import '../utilidades/almacen_datos.dart';
 import '../widgets/banner_superior.dart';
-import '../widgets/filtros.dart';
-import '../widgets/indicadores.dart';
+import '../widgets/seccion_filtros.dart';
+import '../widgets/seccion_graficas.dart';
+import '../widgets/seccion_indicadores.dart';
 import '../widgets/tabla_de_columnas.dart';
 
 class PantallaPrincipal extends StatelessWidget {
@@ -16,7 +17,7 @@ class PantallaPrincipal extends StatelessWidget {
       backgroundColor: Theme.of(context).backgroundColor,
       body: Consumer<AlmacenDatos>(
         builder: (_, almacen, __) => Padding(
-          padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
               BannerSuperior(),
@@ -24,11 +25,14 @@ class PantallaPrincipal extends StatelessWidget {
                 child: Card(
                   color: Colors.grey[200],
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding:
+                        const EdgeInsets.only(left: 8.0, top: 16.0, right: 8.0),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        Filtros(),
-                        Indicadores(),
+                        SeccionFiltros(),
+                        SeccionIndicadores(),
+                        SeccionGraficas(),
                         Expanded(
                           child: almacen.datosListos
                               ? TablaDeColumnas(

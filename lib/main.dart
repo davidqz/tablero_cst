@@ -18,7 +18,7 @@ class MainRouterApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           // Agregar las clases proovedoras que se deseen tener disponibles
-          // en el arbol entero de widgets.
+          // en todo el arbol de widgets.
           ChangeNotifierProvider(create: (_) => AlmacenDatos()),
         ],
         child: MaterialApp(
@@ -28,7 +28,7 @@ class MainRouterApp extends StatelessWidget {
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
           ],
-          supportedLocales: [const Locale('es')],
+          supportedLocales: [const Locale('es', 'MX')],
         ));
   }
 }
@@ -55,7 +55,7 @@ class RouteConfiguration {
   ];
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
-    print(settings.name);
+    // print(settings.name);
     for (final path in paths) {
       final regExpPattern = RegExp(path.pattern);
       if (regExpPattern.hasMatch(settings.name ?? '')) {

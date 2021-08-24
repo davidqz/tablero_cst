@@ -40,7 +40,7 @@ class _FormularioAutentificacionState extends State<FormularioAutentificacion> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: TextField(
               autofocus: true,
               textInputAction: TextInputAction.next,
@@ -51,7 +51,7 @@ class _FormularioAutentificacionState extends State<FormularioAutentificacion> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               obscureText: true,
               onFieldSubmitted: (_) => _autentficarUsuario(),

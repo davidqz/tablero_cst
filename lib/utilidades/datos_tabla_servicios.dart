@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart' show NumberFormat;
+import 'package:intl/intl.dart' show DateFormat, NumberFormat;
 
 import 'modelo_datos_json.dart';
 
 final _formatoMoneda = NumberFormat.simpleCurrency();
 final _formatoPorcentaje = NumberFormat.percentPattern();
+final _formatoFecha = DateFormat('dd/MM/yyyy', 'es_MX');
 
 class DatosTablaServicios extends DataTableSource {
   // Para cada columna que se desee visualizar, incluir en el siguiente mapa un
@@ -13,34 +14,37 @@ class DatosTablaServicios extends DataTableSource {
   // tanto el contenido de sus celdas se alinea hacia la derecha.
   final _mapeoEncabezadosColumnas = {
     'IDServicio': false,
+    'Nombre': false,
     'Estatus': false,
     'EsInterno': false,
-    'Nombre': false,
     'Sede Responsable': false,
     'Cliente': false,
+    'Fecha inicio': false,
+    'Avance reportado': true,
     'Monto': true,
-    'Ingresos totales': true,
-    'Egresos totales': true,
-    'Avance': true,
+    'Total ingresos': true,
+    'Total egresos': true,
   };
 
   List<String> _convertirEnListaDeStrings({required Servicio servicio}) {
+    var fechaInicio = servicio.fechaInicio;
     return [
       servicio.idServicio.toString(),
+      servicio.nombreCorto == '' ? servicio.nombreLargo : servicio.nombreCorto,
       servicio.estatus,
       servicio.esInterno ? 'Interno' : 'Externo',
-      servicio.nombreCorto,
       servicio.sedeResponsable,
       servicio.cliente.nombre,
+      fechaInicio == null ? '' : _formatoFecha.format(fechaInicio),
+      _formatoPorcentaje.format(servicio.ultimoAvanceReportado),
       _formatoMoneda.format(servicio.finanzas.precioSinIVA),
       _formatoMoneda.format(servicio.finanzas.totalIngresos),
       _formatoMoneda.format(servicio.finanzas.totalEgresos),
-      _formatoPorcentaje.format(servicio.ultimoAvanceReportado),
     ];
   }
 
-  DatosTablaServicios({required final List<Servicio> servicios}) {
-    actualizarServicios(servicios);
+  DatosTablaServicios() {
+    // actualizarServicios(servicios);
     _mapeoEncabezadosColumnas.forEach((texto, esNumerico) {
       encabezadosColumnas.add(DataColumn(
         label: Text(
@@ -68,7 +72,7 @@ class DatosTablaServicios extends DataTableSource {
   }
 
   final List<DataColumn> encabezadosColumnas = [];
-  late List<List<DataCell>> _renglones;
+  List<List<DataCell>> _renglones = [];
 
   @override
   DataRow getRow(int index) => DataRow.byIndex(

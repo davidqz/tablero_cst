@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import 'constantes.dart';
 import 'datos_tabla_servicios.dart';
+import 'filtros.dart';
 import 'modelo_datos_json.dart';
 
 class AlmacenDatos extends ChangeNotifier {
@@ -19,66 +21,159 @@ class AlmacenDatos extends ChangeNotifier {
         await rootBundle.loadString(kRutaDatosJson, cache: false);
     final mapa = json.decode(jsonString) as Map<String, dynamic>;
     _datos = DatosJson.fromJson(mapa);
+    print('${_datos.servicios.length} servicios correctamente leidos');
+    _calcularIndicadoresGlobales();
+    _crearFiltros();
     _datosListos = true;
-    datosTablaServicios = DatosTablaServicios(servicios: _datos.servicios);
-    _calcularIndicadores();
+    notifyListeners();
   }
 
-  void agregarFiltro(String nombre, bool seleccionado) {
-    if (seleccionado) {
-      _filtros.add(nombre);
-    } else {
-      _filtros.remove(nombre);
-    }
-
-    aplicarFiltros();
-  }
-
-  void aplicarFiltros() {
-    _serviciosFiltrados =
-        _datos.servicios.where((s) => _filtros.contains(s.sedeResponsable));
-    datosTablaServicios.actualizarServicios(_serviciosFiltrados);
-    _calcularIndicadores();
-  }
-
-  void reestablecerFiltros() {
-    _filtros.clear();
-    datosTablaServicios.actualizarServicios(_datos.servicios);
-    _calcularIndicadores();
-  }
-
-  void _calcularIndicadores() {
-    final servicios = _filtros.isEmpty ? _datos.servicios : _serviciosFiltrados;
-    _numServicios = servicios.length;
-    _numServiciosAbiertos = 0;
-    _numServiciosInternos = 0;
+  void _inicializarIndicadores() {
+    _numServicios = 0;
     _sumaMontos = 0;
     _sumaIngresos = 0;
     _sumaEgresos = 0;
-    for (var servicio in servicios) {
-      _numServiciosAbiertos += servicio.estatus == 'Abierto' ? 1 : 0;
-      _numServiciosInternos += servicio.esInterno ? 1 : 0;
-      _sumaMontos += servicio.finanzas.precioSinIVA;
-      _sumaIngresos += servicio.finanzas.totalIngresos;
-      _sumaEgresos += servicio.finanzas.totalEgresos;
+    montosPorSede.clear();
+    ingresosPorAnyo.clear();
+    egresosPorAnyo.clear();
+  }
+
+  void _agregarServicioAIndicadores(Servicio servicio) {
+    _numServicios++;
+    _sumaMontos += servicio.finanzas.precioSinIVA;
+    _sumaIngresos += servicio.finanzas.totalIngresos;
+    _sumaEgresos += servicio.finanzas.totalEgresos;
+    final sede = servicio.sedeResponsable;
+    montosPorSede.update(
+        sede, (monto) => monto + servicio.finanzas.precioSinIVA,
+        ifAbsent: () => servicio.finanzas.precioSinIVA);
+
+    for (var ingreso in servicio.finanzas.ingresos) {
+      ingresosPorAnyo.update(
+          ingreso.anyo.toString(), (monto) => monto + ingreso.montoSinIVA,
+          ifAbsent: () => ingreso.montoSinIVA);
+    }
+
+    for (var egreso in servicio.finanzas.egresos) {
+      egresosPorAnyo.update(
+          egreso.anyo.toString(), (monto) => monto + egreso.montoSinIVA,
+          ifAbsent: () => egreso.montoSinIVA);
+    }
+  }
+
+  void _calcularIndicadoresGlobales() {
+    _inicializarIndicadores();
+    for (var servicio in _datos.servicios) {
+      _agregarServicioAIndicadores(servicio);
+    }
+    datosTablaServicios.actualizarServicios(_datos.servicios);
+  }
+
+  void _crearFiltros() {
+    for (var servicio in _datos.servicios) {
+      _nombresSedes.add(servicio.sedeResponsable);
+      _nombresEstatus.add(servicio.estatus);
+    }
+    // Filtros de Sede
+    for (var nombreSede in _nombresSedes) {
+      _filtrosSedes.add(
+        Filtro(
+          nombre: nombreSede,
+          alSeleccionarlo: _calcularIndicadoresAplicandoFiltros,
+        ),
+      );
+    }
+
+    // Filtros de Estatus
+    for (var nombreEstatus in _nombresEstatus) {
+      _filtrosEstatus.add(
+        Filtro(
+          nombre: nombreEstatus,
+          alSeleccionarlo: _calcularIndicadoresAplicandoFiltros,
+        ),
+      );
+    }
+  }
+
+  void rangoFechaSeleccionado(DateTimeRange? rangoFechas) {
+    _rangoFechas = rangoFechas;
+    _calcularIndicadoresAplicandoFiltros();
+  }
+
+  void _calcularIndicadoresAplicandoFiltros() {
+    final filtrosSedesActivos = _filtrosSedes
+        .where((filtro) => filtro.seleccionado)
+        .map((filtro) => filtro.nombre);
+    final filtrosEstatusActivos = _filtrosEstatus
+        .where((filtro) => filtro.seleccionado)
+        .map((filtro) => filtro.nombre);
+
+    // Si no hay ningun filtro activo, utilizamos todos los servicios
+    if (filtrosSedesActivos.isEmpty &&
+        filtrosEstatusActivos.isEmpty &&
+        _rangoFechas == null) {
+      _calcularIndicadoresGlobales();
+    } else {
+      // Primero filtramos por rango de fechas
+      final rangoFechas = _rangoFechas;
+      var serviciosEntreFechas;
+      if (rangoFechas == null) {
+        serviciosEntreFechas = _datos.servicios;
+      } else {
+        final rangoInicioMenosUnSegundo =
+            rangoFechas.start.subtract(const Duration(seconds: 1));
+        final rangoFinMasUnSegundo =
+            rangoFechas.end.add(const Duration(seconds: 1));
+        serviciosEntreFechas = _datos.servicios.where((servicio) {
+          final fechaInicio = servicio.fechaInicio;
+          return fechaInicio == null
+              ? false
+              : fechaInicio.isAfter(rangoInicioMenosUnSegundo) &&
+                  fechaInicio.isBefore(rangoFinMasUnSegundo);
+        });
+      }
+
+      // Despues filtramos por estatus de servicio
+      final serviciosFiltradosPorEstatus = filtrosEstatusActivos.isEmpty
+          ? serviciosEntreFechas
+          : serviciosEntreFechas.where(
+              (servicio) => filtrosEstatusActivos.contains(servicio.estatus));
+
+      // Por ultimo filtramos por sede responable
+      _inicializarIndicadores();
+      final serviciosFiltrados = <Servicio>[];
+      for (var servicio in serviciosFiltradosPorEstatus) {
+        if (filtrosSedesActivos.isEmpty ||
+            filtrosSedesActivos.contains(servicio.sedeResponsable)) {
+          serviciosFiltrados.add(servicio);
+          _agregarServicioAIndicadores(servicio);
+        }
+      }
+      datosTablaServicios.actualizarServicios(serviciosFiltrados);
     }
     notifyListeners();
   }
 
   late DatosJson _datos;
-  late DatosTablaServicios datosTablaServicios;
+  final datosTablaServicios = DatosTablaServicios();
 
   bool _datosListos = false;
 
   bool get datosListos => _datosListos;
 
-  final _filtros = [];
-  Iterable<Servicio> _serviciosFiltrados = [];
+  // Usamos SplayTreeSet para encontrar las sedes y los estatus encontrados
+  // en todos los servicios y mantenerlos ordenados.
+  final _nombresSedes = SplayTreeSet<String>();
+  final _nombresEstatus = SplayTreeSet<String>();
 
-  List<Moneda> get monedas => _datos.descriptores.monedas;
+  final _filtrosSedes = <Filtro>[];
+  final _filtrosEstatus = <Filtro>[];
 
-  List<ConceptoIngresoEgreso> get conceptos =>
-      _datos.descriptores.conceptosIngresosEgresos;
+  List<Filtro> get filtrosSedes => _filtrosSedes;
+
+  List<Filtro> get filtrosEstatus => _filtrosEstatus;
+
+  DateTimeRange? _rangoFechas;
 
   // -----------------------------------------------------------
   // ------------------ Indicadores ----------------------------
@@ -87,14 +182,6 @@ class AlmacenDatos extends ChangeNotifier {
   int _numServicios = 0;
 
   int get numServicios => _numServicios;
-
-  int _numServiciosAbiertos = 0;
-
-  int get numServiciosAbiertos => _numServiciosAbiertos;
-
-  int _numServiciosInternos = 0;
-
-  int get numServiciosInternos => _numServiciosInternos;
 
   double _sumaMontos = 0.0;
 
@@ -107,4 +194,8 @@ class AlmacenDatos extends ChangeNotifier {
   double _sumaEgresos = 0.0;
 
   double get sumaEgresos => _sumaEgresos;
+
+  final montosPorSede = <String, double>{};
+  final ingresosPorAnyo = <String, double>{};
+  final egresosPorAnyo = <String, double>{};
 }

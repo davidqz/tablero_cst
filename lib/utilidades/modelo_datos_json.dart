@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'modelo_datos_json.g.dart';
@@ -10,6 +11,9 @@ part 'modelo_datos_json.g.dart';
 //
 // flutter pub run build_runner build
 //
+
+// Formato de fecha para interpretar las fechas como Datetime
+final _formatoFecha = DateFormat('yyyy-MM-dd', 'es_MX');
 
 // Modelo Datos v2
 @JsonSerializable()
@@ -59,9 +63,32 @@ class Servicio {
     required this.procesos,
     required this.avances,
     required this.personas,
-  });
+  }) {
+    // Definimos fechaInicio como la fechaInicioReal y cuando esta no es valida
+    // o no está definida, usamos la fechaInicioProgramada
+    if (procesos.fechaInicioReal.isNotEmpty) {
+      try {
+        _fechaInicio = _formatoFecha.parseLoose(procesos.fechaInicioReal);
+      } on Exception catch (e) {
+        print('fechaInicioReal invalida para idServicio:$idServicio. $e');
+      }
+    }
+    if (fechaInicio == null) {
+      try {
+        _fechaInicio = _formatoFecha.parseLoose(procesos.fechaInicioProgramada);
+      } on Exception catch (e) {
+        print('fechaInicioProgramada invalida para idServicio:$idServicio. $e');
+      }
+    }
+  }
 
   bool get esInterno => interno == '1';
+
+  bool get estaAbierto => estatus == 'Abierto';
+
+  DateTime? _fechaInicio;
+
+  DateTime? get fechaInicio => _fechaInicio;
 
   double get ultimoAvanceReportado {
     if (avances.isEmpty) {
@@ -124,6 +151,8 @@ class Finanzas {
   final List<IngresoEgreso> ingresos;
   final List<IngresoEgreso> egresos;
   final List<PagoProgramado> pagosProgramados;
+  double _totalIngresos = 0.0;
+  double _totalEgresos = 0.0;
 
   Finanzas({
     required this.montoVariable,
@@ -133,23 +162,18 @@ class Finanzas {
     required this.ingresos,
     required this.egresos,
     required this.pagosProgramados,
-  });
-
-  double get totalIngresos {
-    var sumaIngresos = 0.0;
-    for (var ingresoEgreso in ingresos) {
-      sumaIngresos += ingresoEgreso.montoSinIVA;
+  }) {
+    for (var ingreso in ingresos) {
+      _totalIngresos += ingreso.montoSinIVA;
     }
-    return sumaIngresos;
+    for (var egreso in egresos) {
+      _totalEgresos += egreso.montoSinIVA;
+    }
   }
 
-  double get totalEgresos {
-    var sumaEgresos = 0.0;
-    for (var ingresoEgreso in egresos) {
-      sumaEgresos += ingresoEgreso.montoSinIVA;
-    }
-    return sumaEgresos;
-  }
+  double get totalIngresos => _totalIngresos;
+
+  double get totalEgresos => _totalEgresos;
 
   factory Finanzas.fromJson(Map<String, dynamic> json) =>
       _$FinanzasFromJson(json);

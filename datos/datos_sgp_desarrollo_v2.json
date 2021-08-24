@@ -2,7 +2,7 @@
   "servicios": [
     {
       "idServicio": 1,
-      "estatus": "Abierto",
+      "estatus": "Cerrado",
       "interno": "0",
       "nombreCorto": "EME Bioestadística",
       "nombreLargo": "Especialidad en Métodos Estadísticos en Bioestadística",
@@ -64,7 +64,7 @@
           {
             "montoSinIVA": 500.0,
             "mes": 6,
-            "anyo": 2020,
+            "anyo": 2019,
             "idTipoConceptoIngresoEgreso": 23
           },
           {
@@ -82,7 +82,7 @@
           {
             "montoSinIVA": 100.0,
             "mes": 7,
-            "anyo": 2020,
+            "anyo": 2021,
             "idTipoConceptoIngresoEgreso": 23
           },
           {
@@ -394,7 +394,7 @@
     },
     {
       "idServicio": 2,
-      "estatus": "Abierto",
+      "estatus": "Cerrado",
       "interno": "0",
       "nombreCorto": "EMED 2020",
       "nombreLargo": "Especialidad en Métodos Estadísticos a Distancia",
@@ -1469,7 +1469,7 @@
     },
     {
       "idServicio": 6,
-      "estatus": "Abierto",
+      "estatus": "Pendiente",
       "interno": "0",
       "nombreCorto": "SIEMENS CAPACITACION 01",
       "nombreLargo": "SERVICIOS DE CAPACITACIÓN EN TECNOLOGÍA SIEMENS",
@@ -1524,7 +1524,7 @@
     },
     {
       "idServicio": 7,
-      "estatus": "Abierto",
+      "estatus": "Cerrado",
       "interno": "0",
       "nombreCorto": "INEGI.MAEC",
       "nombreLargo": "IMPARTICIÓN DEL PROGRAMA DE ETUDIOS DE NIVEL POSGRADO EN ANÁLISIS ESTADÍSTICO Y COMPUTACIÓN",
@@ -1544,28 +1544,28 @@
       "Finanzas": {
         "montoVariable": 0,
         "idTipoMoneda": 1,
-        "precioSinIVA": 5000000.0,
+        "precioSinIVA": 50000.0,
         "planeacionGastos": [
         ],
         "ingresos": [
         ],
         "egresos": [
           {
-            "montoSinIVA": 10.0,
+            "montoSinIVA": 3000.0,
             "mes": 2,
-            "anyo": 2021,
+            "anyo": 2019,
             "idTipoConceptoIngresoEgreso": 1
           },
           {
-            "montoSinIVA": 10.0,
+            "montoSinIVA": 1000.0,
             "mes": 2,
-            "anyo": 2021,
+            "anyo": 2019,
             "idTipoConceptoIngresoEgreso": 2
           },
           {
             "montoSinIVA": 0.0,
             "mes": 2,
-            "anyo": 2021,
+            "anyo": 2020,
             "idTipoConceptoIngresoEgreso": 3
           },
           {
@@ -2203,7 +2203,7 @@
     },
     {
       "idServicio": 9,
-      "estatus": "Cerrado",
+      "estatus": "Abierto",
       "interno": "0",
       "nombreCorto": "Curso Introducción a MPI",
       "nombreLargo": "Curso Introducción a MPI",
@@ -2326,7 +2326,7 @@
       "Finanzas": {
         "montoVariable": 0,
         "idTipoMoneda": 1,
-        "precioSinIVA": 2000000.0,
+        "precioSinIVA": 20000.0,
         "planeacionGastos": [
           {
             "numVersionPlanGasto": 0,
@@ -2430,136 +2430,6 @@
       ]
     },
     {
-      "idServicio": 12,
-      "estatus": "Abierto",
-      "interno": "1",
-      "nombreCorto": "",
-      "nombreLargo": "Soporte y Mantenimiento de aplicaciones activas 2019",
-      "sedeResponsable": "Guanajuato",
-      "areaVinculacionResponsable": "Gerencia de Desarrollo de Software",
-      "zonaInfluencia": "",
-      "cliente": {
-        "idCliente": 9,
-        "nombre": "Centro de Investigación en Matemáticas A.C.",
-        "sector": "Público",
-        "giro": "",
-        "tamanioOrganizacion": "",
-        "pais": "Estados Unidos Mexicanos",
-        "estado": "Guanajuato",
-        "ciudad": "Guanajuato"
-      },
-      "Finanzas": {
-        "montoVariable": 1,
-        "idTipoMoneda": 1,
-        "precioSinIVA": 0.0,
-        "planeacionGastos": [
-        ],
-        "ingresos": [
-        ],
-        "egresos": [
-        ],
-        "pagosProgramados": [
-        ]
-      },
-      "Procesos": {
-        "fechaInicioProgramada": "2019-01-01",
-        "fechaFinProgramada": "2019-12-31",
-        "fechaInicioTecnicoProgramada": "",
-        "fechaFinTecnicoProgramada": "",
-        "fechaInicioReal": "",
-        "fechaCierreTecnico": "",
-        "fechaCierreModificada": "2019-12-31",
-        "solicitudesCambioFechaCierre": [
-        ]
-      },
-      "avances": [
-      ],
-      "Personas": [
-        {
-          "idPersona": 74,
-          "delCIMAT": "1",
-          "puestoCategoria": "TTA",
-          "horasTrabajadas": [
-          ]
-        },
-        {
-          "idPersona": 81,
-          "delCIMAT": "1",
-          "puestoCategoria": "TTA",
-          "horasTrabajadas": [
-          ]
-        },
-        {
-          "idPersona": 93,
-          "delCIMAT": "1",
-          "puestoCategoria": "TTC",
-          "horasTrabajadas": [
-          ]
-        }
-      ]
-    },
-    {
-      "idServicio": 13,
-      "estatus": "Abierto",
-      "interno": "1",
-      "nombreCorto": "",
-      "nombreLargo": "3a. Etapa de Sistema de navegación Autónoma del CIMAT",
-      "sedeResponsable": "Guanajuato",
-      "areaVinculacionResponsable": "Gerencia de Desarrollo de Software",
-      "zonaInfluencia": "",
-      "cliente": {
-        "idCliente": 9,
-        "nombre": "Centro de Investigación en Matemáticas A.C.",
-        "sector": "Público",
-        "giro": "",
-        "tamanioOrganizacion": "",
-        "pais": "Estados Unidos Mexicanos",
-        "estado": "Guanajuato",
-        "ciudad": "Guanajuato"
-      },
-      "Finanzas": {
-        "montoVariable": 1,
-        "idTipoMoneda": 1,
-        "precioSinIVA": 0.0,
-        "planeacionGastos": [
-        ],
-        "ingresos": [
-        ],
-        "egresos": [
-        ],
-        "pagosProgramados": [
-        ]
-      },
-      "Procesos": {
-        "fechaInicioProgramada": "2019-01-01",
-        "fechaFinProgramada": "2019-12-31",
-        "fechaInicioTecnicoProgramada": "",
-        "fechaFinTecnicoProgramada": "",
-        "fechaInicioReal": "",
-        "fechaCierreTecnico": "",
-        "fechaCierreModificada": "2019-12-31",
-        "solicitudesCambioFechaCierre": [
-          {
-            "fechaOriginal": "2019-12-31",
-            "fechaNueva": "2020-02-03",
-            "fechaSolicitud": "2020-08-29",
-            "estatusSolicitud": "S"
-          }
-        ]
-      },
-      "avances": [
-      ],
-      "Personas": [
-        {
-          "idPersona": 48,
-          "delCIMAT": "1",
-          "puestoCategoria": "TTC",
-          "horasTrabajadas": [
-          ]
-        }
-      ]
-    },
-    {
       "idServicio": 14,
       "estatus": "Abierto",
       "interno": "0",
@@ -2581,7 +2451,7 @@
       "Finanzas": {
         "montoVariable": 0,
         "idTipoMoneda": 1,
-        "precioSinIVA": 600000.0,
+        "precioSinIVA": 6000.0,
         "planeacionGastos": [
           {
             "numVersionPlanGasto": 2,
@@ -3106,7 +2976,7 @@
     },
     {
       "idServicio": 15,
-      "estatus": "Abierto",
+      "estatus": "Cerrado",
       "interno": "0",
       "nombreCorto": "Optimización F1 -Sistemas Atomotrices mexico -2020",
       "nombreLargo": "Optimización de procesos de producción para la emplesa SAM.  Fase 1: Diagnóstico.",
@@ -3126,7 +2996,7 @@
       "Finanzas": {
         "montoVariable": 0,
         "idTipoMoneda": 1,
-        "precioSinIVA": 900000.0,
+        "precioSinIVA": 9000.0,
         "planeacionGastos": [
         ],
         "ingresos": [

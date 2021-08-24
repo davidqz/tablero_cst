@@ -27,8 +27,13 @@ class TableroCstApp extends StatelessWidget {
         primaryColor: kColorPrimario,
         accentColor: kColorSecundario,
         backgroundColor: kColorFondo,
+        iconTheme: const IconThemeData(
+          color: kColorIconos,
+        ),
         inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder(),
+          isDense: true,
+          filled: true,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -36,6 +41,16 @@ class TableroCstApp extends StatelessWidget {
             primary: kColorSecundario,
             padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
           ),
+        ),
+        chipTheme: ChipTheme.of(context).copyWith(
+          backgroundColor: Colors.black26,
+          elevation: 2,
+          selectedColor: kColorSecundario,
+          checkmarkColor: Colors.white,
+          labelStyle: ThemeData.fallback()
+              .textTheme
+              .bodyText1!
+              .copyWith(color: Colors.white),
         ),
       ),
     );
