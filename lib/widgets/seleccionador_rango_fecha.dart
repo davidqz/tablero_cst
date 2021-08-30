@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+
+import '../utilidades/constantes.dart';
 
 class SeleccionadorRangoFecha extends StatefulWidget {
   final Function(DateTimeRange?) alDefinirRangoFecha;
@@ -13,7 +14,6 @@ class SeleccionadorRangoFecha extends StatefulWidget {
 }
 
 class _SeleccionadorRangoFechaState extends State<SeleccionadorRangoFecha> {
-  final _formatoFecha = DateFormat('dd/MM/yyyy', 'es_MX');
   late TextEditingController _controladorFechaInicio;
   late TextEditingController _controladorFechaFin;
   late FocusNode _nodoEnfoqueFechaInicio;
@@ -37,8 +37,9 @@ class _SeleccionadorRangoFechaState extends State<SeleccionadorRangoFecha> {
     if (_controladorFechaInicio.text.isNotEmpty &&
         _controladorFechaFin.text.isNotEmpty) {
       try {
-        fechaInicio = _formatoFecha.parseLoose(_controladorFechaInicio.text);
-        fechaFin = _formatoFecha.parseLoose(_controladorFechaFin.text);
+        fechaInicio =
+            kFormatoFechaInterfaz.parseLoose(_controladorFechaInicio.text);
+        fechaFin = kFormatoFechaInterfaz.parseLoose(_controladorFechaFin.text);
       } on Exception catch (e) {
         print(e.toString());
       }
@@ -73,10 +74,10 @@ class _SeleccionadorRangoFechaState extends State<SeleccionadorRangoFecha> {
     if (rangoFechaElegido != null) {
       setState(() {
         _controladorFechaInicio.value = TextEditingValue(
-          text: _formatoFecha.format(rangoFechaElegido.start),
+          text: kFormatoFechaInterfaz.format(rangoFechaElegido.start),
         );
         _controladorFechaFin.value = TextEditingValue(
-          text: _formatoFecha.format(rangoFechaElegido.end),
+          text: kFormatoFechaInterfaz.format(rangoFechaElegido.end),
         );
       });
       widget.alDefinirRangoFecha(rangoFechaElegido);
@@ -108,9 +109,9 @@ class _SeleccionadorRangoFechaState extends State<SeleccionadorRangoFecha> {
           icon: Icon(Icons.date_range_rounded),
           visualDensity: VisualDensity.compact,
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 4.0),
         SizedBox(
-          width: 140,
+          width: 110,
           child: TextField(
             controller: _controladorFechaInicio,
             focusNode: _nodoEnfoqueFechaInicio,
@@ -119,9 +120,9 @@ class _SeleccionadorRangoFechaState extends State<SeleccionadorRangoFecha> {
             onSubmitted: _fechaCambiada,
           ),
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 4.0),
         SizedBox(
-          width: 140,
+          width: 110,
           child: TextField(
             focusNode: _nodoEnfoqueFechaFin,
             controller: _controladorFechaFin,
@@ -130,7 +131,7 @@ class _SeleccionadorRangoFechaState extends State<SeleccionadorRangoFecha> {
             onSubmitted: _fechaCambiada,
           ),
         ),
-        SizedBox(width: 8),
+        SizedBox(width: 4.0),
         IconButton(
           splashRadius: 24.0,
           onPressed: _borrarFechas,

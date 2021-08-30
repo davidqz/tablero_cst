@@ -28,7 +28,7 @@ class TableroCstApp extends StatelessWidget {
         accentColor: kColorSecundario,
         backgroundColor: kColorFondo,
         iconTheme: const IconThemeData(
-          color: kColorIconos,
+          color: Colors.black87,
         ),
         inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder(),

@@ -13,6 +13,8 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
   flutter_vector_icons: ^1.0.0
   json_annotation: ^4.0.1
   provider: ^5.0.0
@@ -28,5 +30,5 @@ flutter:
   uses-material-design: true
 
   assets:
-    - datos/datos_sgp_desarrollo_v2.json
+    - datos/
     - imagenes/

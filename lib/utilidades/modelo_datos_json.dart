@@ -1,5 +1,6 @@
-import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import 'constantes.dart';
 
 part 'modelo_datos_json.g.dart';
 
@@ -9,11 +10,8 @@ part 'modelo_datos_json.g.dart';
 // de generación automática de codigo intermediario (modelo_datos_json.g.dart)
 // para la correcta lectura de archivos JSON:
 //
-// flutter pub run build_runner build
+// flutter pub run build_runner build --delete-conflicting-outputs
 //
-
-// Formato de fecha para interpretar las fechas como Datetime
-final _formatoFecha = DateFormat('yyyy-MM-dd', 'es_MX');
 
 // Modelo Datos v2
 @JsonSerializable()
@@ -64,18 +62,20 @@ class Servicio {
     required this.avances,
     required this.personas,
   }) {
-    // Definimos fechaInicio como la fechaInicioReal y cuando esta no es valida
-    // o no está definida, usamos la fechaInicioProgramada
+    // Definimos fechaInicio como la fechaInicioReal, cuando esta presente y es
+    // valida; de lo contrario usamos fechaInicioProgramada
     if (procesos.fechaInicioReal.isNotEmpty) {
       try {
-        _fechaInicio = _formatoFecha.parseLoose(procesos.fechaInicioReal);
+        _fechaInicio =
+            kFormatoFechaLectura.parseLoose(procesos.fechaInicioReal);
       } on Exception catch (e) {
         print('fechaInicioReal invalida para idServicio:$idServicio. $e');
       }
     }
     if (fechaInicio == null) {
       try {
-        _fechaInicio = _formatoFecha.parseLoose(procesos.fechaInicioProgramada);
+        _fechaInicio =
+            kFormatoFechaLectura.parseLoose(procesos.fechaInicioProgramada);
       } on Exception catch (e) {
         print('fechaInicioProgramada invalida para idServicio:$idServicio. $e');
       }

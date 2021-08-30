@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart' show DateFormat, NumberFormat;
 
+import 'constantes.dart';
 import 'modelo_datos_json.dart';
-
-final _formatoMoneda = NumberFormat.simpleCurrency();
-final _formatoPorcentaje = NumberFormat.percentPattern();
-final _formatoFecha = DateFormat('dd/MM/yyyy', 'es_MX');
 
 class DatosTablaServicios extends DataTableSource {
   // Para cada columna que se desee visualizar, incluir en el siguiente mapa un
@@ -13,17 +9,16 @@ class DatosTablaServicios extends DataTableSource {
   // valor sea un booleano para indicar si la columna es numerica y por lo
   // tanto el contenido de sus celdas se alinea hacia la derecha.
   final _mapeoEncabezadosColumnas = {
-    'IDServicio': false,
+    'ID': false,
     'Nombre': false,
     'Estatus': false,
-    'EsInterno': false,
-    'Sede Responsable': false,
+    'Sede': false,
     'Cliente': false,
     'Fecha inicio': false,
-    'Avance reportado': true,
     'Monto': true,
     'Total ingresos': true,
     'Total egresos': true,
+    'Último avance reportado': true,
   };
 
   List<String> _convertirEnListaDeStrings({required Servicio servicio}) {
@@ -32,27 +27,24 @@ class DatosTablaServicios extends DataTableSource {
       servicio.idServicio.toString(),
       servicio.nombreCorto == '' ? servicio.nombreLargo : servicio.nombreCorto,
       servicio.estatus,
-      servicio.esInterno ? 'Interno' : 'Externo',
       servicio.sedeResponsable,
       servicio.cliente.nombre,
-      fechaInicio == null ? '' : _formatoFecha.format(fechaInicio),
-      _formatoPorcentaje.format(servicio.ultimoAvanceReportado),
-      _formatoMoneda.format(servicio.finanzas.precioSinIVA),
-      _formatoMoneda.format(servicio.finanzas.totalIngresos),
-      _formatoMoneda.format(servicio.finanzas.totalEgresos),
+      fechaInicio == null ? '' : kFormatoFechaInterfaz.format(fechaInicio),
+      kFormatoMoneda.format(servicio.finanzas.precioSinIVA),
+      kFormatoMoneda.format(servicio.finanzas.totalIngresos),
+      kFormatoMoneda.format(servicio.finanzas.totalEgresos),
+      kFormatoPorcentaje.format(servicio.ultimoAvanceReportado),
     ];
   }
 
   DatosTablaServicios() {
-    // actualizarServicios(servicios);
     _mapeoEncabezadosColumnas.forEach((texto, esNumerico) {
       encabezadosColumnas.add(DataColumn(
-        label: Text(
-          texto,
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        numeric: esNumerico,
-      ));
+          label: Text(
+            texto,
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          numeric: esNumerico));
     });
   }
 
@@ -75,8 +67,8 @@ class DatosTablaServicios extends DataTableSource {
   List<List<DataCell>> _renglones = [];
 
   @override
-  DataRow getRow(int index) => DataRow.byIndex(
-      index: index, cells: _renglones[index], onSelectChanged: null);
+  DataRow getRow(int index) =>
+      DataRow.byIndex(index: index, cells: _renglones[index]);
 
   @override
   int get rowCount => _renglones.length;

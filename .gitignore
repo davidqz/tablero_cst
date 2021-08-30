@@ -27,3 +27,5 @@
 build/
 pubspec.lock
 *.g.dart
+
+datos/datos_sgp_produccion_v2.json

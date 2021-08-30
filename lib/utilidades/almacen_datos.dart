@@ -5,9 +5,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../widgets/seccion_filtros.dart';
 import 'constantes.dart';
 import 'datos_tabla_servicios.dart';
-import 'filtros.dart';
 import 'modelo_datos_json.dart';
 
 class AlmacenDatos extends ChangeNotifier {
@@ -33,7 +33,7 @@ class AlmacenDatos extends ChangeNotifier {
     _sumaMontos = 0;
     _sumaIngresos = 0;
     _sumaEgresos = 0;
-    montosPorSede.clear();
+    _montosPorSede.clear();
     ingresosPorAnyo.clear();
     egresosPorAnyo.clear();
   }
@@ -43,9 +43,9 @@ class AlmacenDatos extends ChangeNotifier {
     _sumaMontos += servicio.finanzas.precioSinIVA;
     _sumaIngresos += servicio.finanzas.totalIngresos;
     _sumaEgresos += servicio.finanzas.totalEgresos;
-    final sede = servicio.sedeResponsable;
-    montosPorSede.update(
-        sede, (monto) => monto + servicio.finanzas.precioSinIVA,
+
+    _montosPorSede.update(servicio.sedeResponsable,
+        (monto) => monto + servicio.finanzas.precioSinIVA,
         ifAbsent: () => servicio.finanzas.precioSinIVA);
 
     for (var ingreso in servicio.finanzas.ingresos) {
@@ -140,8 +140,8 @@ class AlmacenDatos extends ChangeNotifier {
               (servicio) => filtrosEstatusActivos.contains(servicio.estatus));
 
       // Por ultimo filtramos por sede responable
-      _inicializarIndicadores();
       final serviciosFiltrados = <Servicio>[];
+      _inicializarIndicadores();
       for (var servicio in serviciosFiltradosPorEstatus) {
         if (filtrosSedesActivos.isEmpty ||
             filtrosSedesActivos.contains(servicio.sedeResponsable)) {
@@ -161,8 +161,8 @@ class AlmacenDatos extends ChangeNotifier {
 
   bool get datosListos => _datosListos;
 
-  // Usamos SplayTreeSet para encontrar las sedes y los estatus encontrados
-  // en todos los servicios y mantenerlos ordenados.
+  // Usamos SplayTreeSet para almacenar en orden alfabetico los diferentes
+  // nombres de sedes y estatus entre todos los servicios leidos
   final _nombresSedes = SplayTreeSet<String>();
   final _nombresEstatus = SplayTreeSet<String>();
 
@@ -180,7 +180,6 @@ class AlmacenDatos extends ChangeNotifier {
   // -----------------------------------------------------------
 
   int _numServicios = 0;
-
   int get numServicios => _numServicios;
 
   double _sumaMontos = 0.0;
@@ -195,7 +194,16 @@ class AlmacenDatos extends ChangeNotifier {
 
   double get sumaEgresos => _sumaEgresos;
 
-  final montosPorSede = <String, double>{};
-  final ingresosPorAnyo = <String, double>{};
-  final egresosPorAnyo = <String, double>{};
+  // Usamos SplayTreeMap para mantener el orden de las sedes y los años
+  final _montosPorSede = SplayTreeMap<String, double>();
+
+  SplayTreeMap<String, double> get montosPorSede => _montosPorSede;
+
+  final _ingresosPorAnyo = SplayTreeMap<String, double>();
+
+  SplayTreeMap<String, double> get ingresosPorAnyo => _ingresosPorAnyo;
+
+  final _egresosPorAnyo = SplayTreeMap<String, double>();
+
+  SplayTreeMap<String, double> get egresosPorAnyo => _egresosPorAnyo;
 }

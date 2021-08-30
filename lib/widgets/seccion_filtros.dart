@@ -2,9 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../utilidades/almacen_datos.dart';
-import '../utilidades/filtros.dart';
 import 'seleccionador_rango_fecha.dart';
 import 'tarjeta_con_titulo.dart';
+
+class Filtro {
+  final String nombre;
+  final Function alSeleccionarlo;
+  bool seleccionado = false;
+
+  Filtro({
+    required this.nombre,
+    required this.alSeleccionarlo,
+  });
+}
 
 class SeccionFiltros extends StatefulWidget {
   SeccionFiltros();
@@ -36,10 +46,9 @@ class _SeccionFiltrosState extends State<SeccionFiltros> {
     return Row(
       children: [
         TarjetaConTitulo(
-          flex: 1,
           titulo: 'Filtro por estatus',
-          child: Padding(
-            padding: const EdgeInsets.all(4.0),
+          widget: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4.0),
             child: Wrap(
               children: _construirFilterChips(
                   Provider.of<AlmacenDatos>(context, listen: false)
@@ -48,10 +57,9 @@ class _SeccionFiltrosState extends State<SeccionFiltros> {
           ),
         ),
         TarjetaConTitulo(
-          flex: 2,
           titulo: 'Filtro por sede',
-          child: Padding(
-            padding: const EdgeInsets.all(4.0),
+          widget: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4.0),
             child: Wrap(
               children: _construirFilterChips(
                   Provider.of<AlmacenDatos>(context, listen: false)
@@ -60,9 +68,9 @@ class _SeccionFiltrosState extends State<SeccionFiltros> {
           ),
         ),
         TarjetaConTitulo(
-          flex: 2,
+          seExpande: false,
           titulo: 'Filtro por periodo',
-          child: SeleccionadorRangoFecha(
+          widget: SeleccionadorRangoFecha(
               alDefinirRangoFecha:
                   Provider.of<AlmacenDatos>(context, listen: false)
                       .rangoFechaSeleccionado),
