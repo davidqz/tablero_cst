@@ -43,39 +43,35 @@ class _SeccionFiltrosState extends State<SeccionFiltros> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        TarjetaConTitulo(
-          titulo: 'Filtro por estatus',
-          widget: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4.0),
-            child: Wrap(
-              children: _construirFilterChips(
-                  Provider.of<AlmacenDatos>(context, listen: false)
-                      .filtrosEstatus),
+    return Consumer<AlmacenDatos>(
+      builder: (_, almacen, __) => Row(
+        children: [
+          TarjetaConTitulo(
+            titulo: 'Filtro por estatus',
+            widget: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Wrap(
+                children: _construirFilterChips(almacen.filtrosEstatus),
+              ),
             ),
           ),
-        ),
-        TarjetaConTitulo(
-          titulo: 'Filtro por sede',
-          widget: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 4.0),
-            child: Wrap(
-              children: _construirFilterChips(
-                  Provider.of<AlmacenDatos>(context, listen: false)
-                      .filtrosSedes),
+          TarjetaConTitulo(
+            titulo: 'Filtro por sede',
+            widget: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Wrap(
+                children: _construirFilterChips(almacen.filtrosSedes),
+              ),
             ),
           ),
-        ),
-        TarjetaConTitulo(
-          seExpande: false,
-          titulo: 'Filtro por periodo',
-          widget: SeleccionadorRangoFecha(
-              alDefinirRangoFecha:
-                  Provider.of<AlmacenDatos>(context, listen: false)
-                      .rangoFechaSeleccionado),
-        ),
-      ],
+          TarjetaConTitulo(
+            seExpande: false,
+            titulo: 'Filtro por periodo',
+            widget: SeleccionadorRangoFecha(
+                alDefinirRangoFecha: almacen.rangoFechaSeleccionado),
+          ),
+        ],
+      ),
     );
   }
 }

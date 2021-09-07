@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../modelos/datos_json.dart';
 import 'constantes.dart';
-import 'modelo_datos_json.dart';
 
 class DatosTablaServicios extends DataTableSource {
   // Para cada columna que se desee visualizar, incluir en el siguiente mapa un

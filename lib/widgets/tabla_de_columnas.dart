@@ -1,54 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../modelos/columna_tabla.dart';
+import '../modelos/datos_json.dart';
 import '../utilidades/constantes.dart';
+import '../utilidades/notificador_datos.dart';
 
-class TablaDeColumnas extends StatefulWidget {
-  final String? titulo;
-  final DataTableSource datosTabla;
-  final List<DataColumn> encabezadosColumna;
+class TablaDeColumnas extends StatelessWidget {
+  TablaDeColumnas();
 
-  TablaDeColumnas({
-    this.titulo,
-    required this.datosTabla,
-    required this.encabezadosColumna,
-  });
-
-  @override
-  _TablaDeColumnasState createState() => _TablaDeColumnasState();
-}
-
-class _TablaDeColumnasState extends State<TablaDeColumnas> {
-  int _renglonesPorPagina = kRenglonesPorPagina;
+  List<DataColumn> _crearEncabezados(List<ColumnaTabla<Servicio>> columnas) =>
+      columnas
+          .map((columna) => DataColumn(
+                label: Text(
+                  columna.encabezado,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                numeric: columna.alineacionDerecha,
+                onSort: columna.alOrdenar,
+              ))
+          .toList(growable: false);
 
   @override
   Widget build(BuildContext context) {
-    final optionalTitle = widget.titulo;
+    final datosTabla = context.watch<NotificadorDatos>();
     return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(4.0),
-        child: ListView(
-          children: [
-            PaginatedDataTable(
-              key: UniqueKey(),
-              header: optionalTitle != null
-                  ? Text(
-                      optionalTitle,
-                      style: Theme.of(context).textTheme.headline4,
-                    )
-                  : null,
-              rowsPerPage: _renglonesPorPagina,
-              onRowsPerPageChanged: (value) {
-                setState(() {
-                  _renglonesPorPagina = value!;
-                });
-              },
-              availableRowsPerPage: [kRenglonesPorPagina, 10, 20],
-              columns: widget.encabezadosColumna,
-              source: widget.datosTabla,
-            ),
-          ],
-        ),
-      ),
+      child: datosTabla.datosListos
+          ? Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: ListView(
+                children: [
+                  PaginatedDataTable(
+                    key: UniqueKey(),
+                    columns: _crearEncabezados(datosTabla.columnasServicios),
+                    source: datosTabla.origenDatosTabla,
+                    sortColumnIndex: datosTabla.indiceColumnaOrdenada,
+                    sortAscending: datosTabla.ordenAscendente,
+                    rowsPerPage: datosTabla.renglonesPorPagina,
+                    availableRowsPerPage: [kRenglonesPorPagina, 10, 20],
+                    onRowsPerPageChanged: (renglones) =>
+                        datosTabla.renglonesPorPagina = renglones!,
+                  ),
+                ],
+              ),
+            )
+          : Center(child: CircularProgressIndicator()),
     );
   }
 }

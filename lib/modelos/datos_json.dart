@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import 'constantes.dart';
+import '../utilidades/constantes.dart';
 
-part 'modelo_datos_json.g.dart';
+part 'datos_json.g.dart';
 
 // Clase que encapusla los datos leidos del archivo JSON.
 //
@@ -69,24 +70,29 @@ class Servicio {
         _fechaInicio =
             kFormatoFechaLectura.parseLoose(procesos.fechaInicioReal);
       } on Exception catch (e) {
-        print('fechaInicioReal invalida para idServicio:$idServicio. $e');
+        print('fechaInicioReal (${procesos.fechaInicioReal}) invalida'
+            ' para idServicio:$idServicio. Exception: $e');
       }
     }
-    if (fechaInicio == null) {
+    if (_fechaInicio == null) {
       try {
         _fechaInicio =
             kFormatoFechaLectura.parseLoose(procesos.fechaInicioProgramada);
       } on Exception catch (e) {
-        print('fechaInicioProgramada invalida para idServicio:$idServicio. $e');
+        print(
+            'fechaInicioProgramada (${procesos.fechaInicioProgramada}) invalida'
+            ' para idServicio:$idServicio. $e');
       }
     }
   }
 
-  bool get esInterno => interno == '1';
-
-  bool get estaAbierto => estatus == 'Abierto';
-
   DateTime? _fechaInicio;
+
+  //-------------- Getters --------------------------
+
+  String get nombre => nombreCorto == '' ? nombreLargo : nombreCorto;
+
+  bool get esInterno => interno == '1';
 
   DateTime? get fechaInicio => _fechaInicio;
 
@@ -110,6 +116,32 @@ class Servicio {
       }
     }
     return porcentajeAvance / 100.0;
+  }
+
+  double ingresosReportadosEnRango(DateTimeRange rango) {
+    var ingresos = 0.0;
+    for (var ingreso in finanzas.ingresos) {
+      if (ingreso.anyo >= rango.start.year && ingreso.anyo <= rango.end.year) {
+        if (ingreso.mes >= rango.start.month &&
+            ingreso.mes <= rango.end.month) {
+          ingresos += ingreso.montoSinIVA;
+        }
+      }
+    }
+    return ingresos;
+  }
+
+  double egresosReportadosEnRango(DateTimeRange rango) {
+    var ingresos = 0.0;
+    for (var ingreso in finanzas.egresos) {
+      if (ingreso.anyo >= rango.start.year && ingreso.anyo <= rango.end.year) {
+        if (ingreso.mes >= rango.start.month &&
+            ingreso.mes <= rango.end.month) {
+          ingresos += ingreso.montoSinIVA;
+        }
+      }
+    }
+    return ingresos;
   }
 
   factory Servicio.fromJson(Map<String, dynamic> json) =>

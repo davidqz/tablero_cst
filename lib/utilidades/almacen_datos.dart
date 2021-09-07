@@ -5,10 +5,10 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import '../modelos/datos_json.dart';
 import '../widgets/seccion_filtros.dart';
 import 'constantes.dart';
 import 'datos_tabla_servicios.dart';
-import 'modelo_datos_json.dart';
 
 class AlmacenDatos extends ChangeNotifier {
   AlmacenDatos() {
@@ -22,10 +22,37 @@ class AlmacenDatos extends ChangeNotifier {
     final mapa = json.decode(jsonString) as Map<String, dynamic>;
     _datos = DatosJson.fromJson(mapa);
     print('${_datos.servicios.length} servicios correctamente leidos');
+    _pruebas([]);
     _calcularIndicadoresGlobales();
     _crearFiltros();
+    //
     _datosListos = true;
     notifyListeners();
+  }
+
+  void _pruebas(List<Servicio> servicios) {
+    if (servicios.isEmpty) {
+      return;
+    }
+    final rango =
+        DateTimeRange(start: DateTime(2021, 1, 1), end: DateTime(2021, 8, 30));
+    final servicios2021 = servicios.where((servicio) {
+      var ingresosEnRango = servicio.finanzas.ingresos.where((ingreso) =>
+          ingreso.anyo >= rango.start.year && ingreso.anyo <= rango.end.year);
+      return ingresosEnRango.isNotEmpty;
+    });
+    print('No. de servicios con ingresos en 2021: ${servicios2021.length}');
+    for (var ser in servicios2021) {
+      if (ser.sedeResponsable == 'Monterrey') {
+        print('-${ser.idServicio}: ${ser.nombreCorto}, '
+            '${ser.fechaInicio} + ${ser.estatus}');
+        for (var ing in ser.finanzas.ingresos) {
+          if (ing.montoSinIVA > 0 && ing.anyo == 2021) {
+            print('  -${ing.anyo}, ${ing.mes}: ${ing.montoSinIVA}');
+          }
+        }
+      }
+    }
   }
 
   void _inicializarIndicadores() {
@@ -183,27 +210,21 @@ class AlmacenDatos extends ChangeNotifier {
   int get numServicios => _numServicios;
 
   double _sumaMontos = 0.0;
-
   double get sumaMontos => _sumaMontos;
 
   double _sumaIngresos = 0.0;
-
   double get sumaIngresos => _sumaIngresos;
 
   double _sumaEgresos = 0.0;
-
   double get sumaEgresos => _sumaEgresos;
 
   // Usamos SplayTreeMap para mantener el orden de las sedes y los años
   final _montosPorSede = SplayTreeMap<String, double>();
-
   SplayTreeMap<String, double> get montosPorSede => _montosPorSede;
 
   final _ingresosPorAnyo = SplayTreeMap<String, double>();
-
   SplayTreeMap<String, double> get ingresosPorAnyo => _ingresosPorAnyo;
 
   final _egresosPorAnyo = SplayTreeMap<String, double>();
-
   SplayTreeMap<String, double> get egresosPorAnyo => _egresosPorAnyo;
 }

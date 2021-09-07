@@ -15,36 +15,30 @@ class PantallaPrincipal extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
-      body: Consumer<AlmacenDatos>(
-        builder: (_, almacen, __) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Column(
-            children: [
-              BannerSuperior(),
-              Expanded(
-                child: almacen.datosListos
-                    ? Padding(
-                        padding: const EdgeInsets.only(
-                          left: 8.0,
-                          top: 16.0,
-                        ),
-                        child: Column(
-                          children: [
-                            SeccionFiltros(),
-                            SeccionIndicadores(),
-                            SeccionGraficas(),
-                            TablaDeColumnas(
-                              datosTabla: almacen.datosTablaServicios,
-                              encabezadosColumna: almacen
-                                  .datosTablaServicios.encabezadosColumnas,
-                            )
-                          ],
-                        ),
-                      )
-                    : Center(child: CircularProgressIndicator()),
-              ),
-            ],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Column(
+          children: [
+            BannerSuperior(),
+            Expanded(
+              child: Provider.of<AlmacenDatos>(context).datosListos
+                  ? Padding(
+                      padding: const EdgeInsets.only(
+                        left: 8.0,
+                        top: 16.0,
+                      ),
+                      child: Column(
+                        children: [
+                          SeccionFiltros(),
+                          SeccionIndicadores(),
+                          SeccionGraficas(),
+                          TablaDeColumnas(),
+                        ],
+                      ),
+                    )
+                  : Center(child: CircularProgressIndicator()),
+            ),
+          ],
         ),
       ),
     );
