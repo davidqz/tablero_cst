@@ -8,11 +8,14 @@ import 'package:flutter/services.dart' show rootBundle;
 import '../modelos/datos_json.dart';
 import '../widgets/seccion_filtros.dart';
 import 'constantes.dart';
-import 'datos_tabla_servicios.dart';
 
 class AlmacenDatos extends ChangeNotifier {
   AlmacenDatos() {
-    _cargarArchivoJson();
+    _cargarArchivoJson().then((_) {
+      _calcularIndicadoresGlobales();
+      _crearFiltros();
+      notifyListeners();
+    });
   }
 
   Future _cargarArchivoJson() async {
@@ -21,38 +24,8 @@ class AlmacenDatos extends ChangeNotifier {
         await rootBundle.loadString(kRutaDatosJson, cache: false);
     final mapa = json.decode(jsonString) as Map<String, dynamic>;
     _datos = DatosJson.fromJson(mapa);
-    print('${_datos.servicios.length} servicios correctamente leidos');
-    _pruebas([]);
-    _calcularIndicadoresGlobales();
-    _crearFiltros();
-    //
     _datosListos = true;
-    notifyListeners();
-  }
-
-  void _pruebas(List<Servicio> servicios) {
-    if (servicios.isEmpty) {
-      return;
-    }
-    final rango =
-        DateTimeRange(start: DateTime(2021, 1, 1), end: DateTime(2021, 8, 30));
-    final servicios2021 = servicios.where((servicio) {
-      var ingresosEnRango = servicio.finanzas.ingresos.where((ingreso) =>
-          ingreso.anyo >= rango.start.year && ingreso.anyo <= rango.end.year);
-      return ingresosEnRango.isNotEmpty;
-    });
-    print('No. de servicios con ingresos en 2021: ${servicios2021.length}');
-    for (var ser in servicios2021) {
-      if (ser.sedeResponsable == 'Monterrey') {
-        print('-${ser.idServicio}: ${ser.nombreCorto}, '
-            '${ser.fechaInicio} + ${ser.estatus}');
-        for (var ing in ser.finanzas.ingresos) {
-          if (ing.montoSinIVA > 0 && ing.anyo == 2021) {
-            print('  -${ing.anyo}, ${ing.mes}: ${ing.montoSinIVA}');
-          }
-        }
-      }
-    }
+    print('${_datos.servicios.length} servicios correctamente leidos');
   }
 
   void _inicializarIndicadores() {
@@ -61,28 +34,28 @@ class AlmacenDatos extends ChangeNotifier {
     _sumaIngresos = 0;
     _sumaEgresos = 0;
     _montosPorSede.clear();
-    ingresosPorAnyo.clear();
-    egresosPorAnyo.clear();
+    _ingresosPorAnyo.clear();
+    _egresosPorAnyo.clear();
   }
 
   void _agregarServicioAIndicadores(Servicio servicio) {
     _numServicios++;
     _sumaMontos += servicio.finanzas.precioSinIVA;
-    _sumaIngresos += servicio.finanzas.totalIngresos;
-    _sumaEgresos += servicio.finanzas.totalEgresos;
+    _sumaIngresos += servicio.sumaIngresos;
+    _sumaEgresos += servicio.sumaEgresos;
 
     _montosPorSede.update(servicio.sedeResponsable,
         (monto) => monto + servicio.finanzas.precioSinIVA,
         ifAbsent: () => servicio.finanzas.precioSinIVA);
 
-    for (var ingreso in servicio.finanzas.ingresos) {
-      ingresosPorAnyo.update(
+    for (var ingreso in servicio.ingresos) {
+      _ingresosPorAnyo.update(
           ingreso.anyo.toString(), (monto) => monto + ingreso.montoSinIVA,
           ifAbsent: () => ingreso.montoSinIVA);
     }
 
-    for (var egreso in servicio.finanzas.egresos) {
-      egresosPorAnyo.update(
+    for (var egreso in servicio.egresos) {
+      _egresosPorAnyo.update(
           egreso.anyo.toString(), (monto) => monto + egreso.montoSinIVA,
           ifAbsent: () => egreso.montoSinIVA);
     }
@@ -93,7 +66,6 @@ class AlmacenDatos extends ChangeNotifier {
     for (var servicio in _datos.servicios) {
       _agregarServicioAIndicadores(servicio);
     }
-    datosTablaServicios.actualizarServicios(_datos.servicios);
   }
 
   void _crearFiltros() {
@@ -124,6 +96,9 @@ class AlmacenDatos extends ChangeNotifier {
 
   void rangoFechaSeleccionado(DateTimeRange? rangoFechas) {
     _rangoFechas = rangoFechas;
+    for (var servicio in _datos.servicios) {
+      servicio.rangoFecha = rangoFechas;
+    }
     _calcularIndicadoresAplicandoFiltros();
   }
 
@@ -141,23 +116,15 @@ class AlmacenDatos extends ChangeNotifier {
         _rangoFechas == null) {
       _calcularIndicadoresGlobales();
     } else {
-      // Primero filtramos por rango de fechas
-      final rangoFechas = _rangoFechas;
-      var serviciosEntreFechas;
-      if (rangoFechas == null) {
+      // Primero filtramos por periodo
+      List<Servicio> serviciosEntreFechas;
+      if (_rangoFechas == null) {
         serviciosEntreFechas = _datos.servicios;
       } else {
-        final rangoInicioMenosUnSegundo =
-            rangoFechas.start.subtract(const Duration(seconds: 1));
-        final rangoFinMasUnSegundo =
-            rangoFechas.end.add(const Duration(seconds: 1));
-        serviciosEntreFechas = _datos.servicios.where((servicio) {
-          final fechaInicio = servicio.fechaInicio;
-          return fechaInicio == null
-              ? false
-              : fechaInicio.isAfter(rangoInicioMenosUnSegundo) &&
-                  fechaInicio.isBefore(rangoFinMasUnSegundo);
-        });
+        serviciosEntreFechas = _datos.servicios
+            .where((servicio) =>
+                servicio.sumaIngresos > 0 || servicio.sumaEgresos > 0)
+            .toList();
       }
 
       // Despues filtramos por estatus de servicio
@@ -176,13 +143,31 @@ class AlmacenDatos extends ChangeNotifier {
           _agregarServicioAIndicadores(servicio);
         }
       }
-      datosTablaServicios.actualizarServicios(serviciosFiltrados);
+      _serviciosFiltrados.replaceRange(
+          0, _serviciosFiltrados.length, serviciosFiltrados);
     }
     notifyListeners();
   }
 
   late DatosJson _datos;
-  final datosTablaServicios = DatosTablaServicios();
+
+  final List<Servicio> _serviciosFiltrados = [];
+
+  bool get _hayFiltrosActivos {
+    if (_filtrosSedes.any((filtro) => filtro.seleccionado)) {
+      return true;
+    }
+    if (_filtrosEstatus.any((filtro) => filtro.seleccionado)) {
+      return true;
+    }
+    if (_rangoFechas != null) {
+      return true;
+    }
+    return false;
+  }
+
+  List<Servicio> get servicios =>
+      _hayFiltrosActivos ? _serviciosFiltrados : _datos.servicios;
 
   bool _datosListos = false;
 

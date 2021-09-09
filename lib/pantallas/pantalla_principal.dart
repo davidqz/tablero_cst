@@ -6,7 +6,7 @@ import '../widgets/banner_superior.dart';
 import '../widgets/seccion_filtros.dart';
 import '../widgets/seccion_graficas.dart';
 import '../widgets/seccion_indicadores.dart';
-import '../widgets/tabla_de_columnas.dart';
+import '../widgets/tabla_columnas.dart';
 
 class PantallaPrincipal extends StatelessWidget {
   const PantallaPrincipal();
@@ -32,7 +32,7 @@ class PantallaPrincipal extends StatelessWidget {
                           SeccionFiltros(),
                           SeccionIndicadores(),
                           SeccionGraficas(),
-                          TablaDeColumnas(),
+                          TablaColumnas(),
                         ],
                       ),
                     )

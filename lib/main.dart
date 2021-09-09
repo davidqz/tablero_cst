@@ -7,7 +7,7 @@ import 'modelos/usuario.dart';
 import 'pantallas/pantalla_autentificacion.dart';
 import 'utilidades/almacen_datos.dart';
 import 'utilidades/constantes.dart';
-import 'utilidades/notificador_datos.dart';
+import 'utilidades/notificador_tabla_servicios.dart';
 import 'widgets/verificador_usuario.dart';
 
 void main() {
@@ -23,8 +23,14 @@ class TableroCstApp extends StatelessWidget {
     return MultiProvider(
         providers: [
           Provider(create: (_) => Usuario()),
-          ChangeNotifierProvider(create: (_) => NotificadorDatos()),
           ChangeNotifierProvider(create: (_) => AlmacenDatos()),
+          ChangeNotifierProxyProvider<AlmacenDatos, NotificadorTablaServicios>(
+              create: (_) => NotificadorTablaServicios(),
+              update: (_, almacen, notificadorTabla) =>
+                  (notificadorTabla == null)
+                      ? NotificadorTablaServicios()
+                      : notificadorTabla
+                    ..actualizarServicios(almacen.servicios)),
         ],
         child: MaterialApp(
           title: kTituloPaginaWeb,

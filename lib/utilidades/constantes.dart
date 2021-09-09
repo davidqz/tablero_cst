@@ -7,6 +7,7 @@ const kRutaAutentificacion = '/autentificacion';
 
 // Ruta y nombre de archivo JSON de origen.
 const kRutaDatosJson = 'datos/datos_sgp_desarrollo_v2.json';
+// const kRutaDatosJson = 'datos/datos_sgp_produccion_v2.json';
 
 // Texto que aparece como titulo de la pagina web.
 const kTituloPaginaWeb = 'Tablero de Indicadores CST';
@@ -18,6 +19,7 @@ const kColorSecundario = Color(0xFF7F344E);
 const kAlturaBannerSuperior = 60.0;
 const kAlturaGraficas = 150.0;
 const kRenglonesPorPagina = 5;
+const kAnyoInicialCalendarioPeriodo = 2014;
 
 final kFormatoPorcentaje = NumberFormat.percentPattern();
 final kFormatoMoneda = NumberFormat.simpleCurrency();

@@ -58,7 +58,7 @@ class _SeleccionadorRangoFechaState extends State<SeleccionadorRangoFecha> {
     final rangoFechaElegido = await showDateRangePicker(
         context: context,
         initialDateRange: _obtenerRangoDeFechasValidas(),
-        firstDate: DateTime(2016),
+        firstDate: DateTime(kAnyoInicialCalendarioPeriodo),
         lastDate: DateTime.now(),
         initialEntryMode: DatePickerEntryMode.calendarOnly,
         builder: (context, child) {

@@ -48,6 +48,10 @@ class Servicio {
   @JsonKey(name: 'Personas')
   final List<Persona> personas;
 
+  // Campos privados:
+  DateTime? _fechaInicio;
+  DateTimeRange? _rangoFecha;
+
   Servicio({
     required this.idServicio,
     required this.estatus,
@@ -86,15 +90,52 @@ class Servicio {
     }
   }
 
-  DateTime? _fechaInicio;
-
-  //-------------- Getters --------------------------
-
+  // Campos publicos ('getters') adicionales al modelo JSON
   String get nombre => nombreCorto == '' ? nombreLargo : nombreCorto;
 
   bool get esInterno => interno == '1';
 
   DateTime? get fechaInicio => _fechaInicio;
+
+  DateTimeRange? get rangoFecha => _rangoFecha;
+
+  set rangoFecha(DateTimeRange? rango) {
+    _rangoFecha = rango;
+  }
+
+  Iterable<IngresoEgreso> get ingresos {
+    final rango = _rangoFecha;
+    if (rango == null) return finanzas.ingresos;
+    return finanzas.ingresos.where((ingreso) => ingreso.entreFechas(rango));
+  }
+
+  double get sumaIngresos {
+    final rango = _rangoFecha;
+    if (rango == null) return finanzas.totalIngresos;
+
+    var suma = 0.0;
+    for (var ingreso in ingresos) {
+      suma += ingreso.montoSinIVA;
+    }
+    return suma;
+  }
+
+  Iterable<IngresoEgreso> get egresos {
+    final rango = _rangoFecha;
+    if (rango == null) return finanzas.egresos;
+    return finanzas.egresos.where((egreso) => egreso.entreFechas(rango));
+  }
+
+  double get sumaEgresos {
+    final rango = _rangoFecha;
+    if (rango == null) return finanzas.totalEgresos;
+
+    var suma = 0.0;
+    for (var egreso in egresos) {
+      suma += egreso.montoSinIVA;
+    }
+    return suma;
+  }
 
   double get ultimoAvanceReportado {
     if (avances.isEmpty) {
@@ -116,32 +157,6 @@ class Servicio {
       }
     }
     return porcentajeAvance / 100.0;
-  }
-
-  double ingresosReportadosEnRango(DateTimeRange rango) {
-    var ingresos = 0.0;
-    for (var ingreso in finanzas.ingresos) {
-      if (ingreso.anyo >= rango.start.year && ingreso.anyo <= rango.end.year) {
-        if (ingreso.mes >= rango.start.month &&
-            ingreso.mes <= rango.end.month) {
-          ingresos += ingreso.montoSinIVA;
-        }
-      }
-    }
-    return ingresos;
-  }
-
-  double egresosReportadosEnRango(DateTimeRange rango) {
-    var ingresos = 0.0;
-    for (var ingreso in finanzas.egresos) {
-      if (ingreso.anyo >= rango.start.year && ingreso.anyo <= rango.end.year) {
-        if (ingreso.mes >= rango.start.month &&
-            ingreso.mes <= rango.end.month) {
-          ingresos += ingreso.montoSinIVA;
-        }
-      }
-    }
-    return ingresos;
   }
 
   factory Servicio.fromJson(Map<String, dynamic> json) =>
@@ -183,6 +198,8 @@ class Finanzas {
   final List<IngresoEgreso> ingresos;
   final List<IngresoEgreso> egresos;
   final List<PagoProgramado> pagosProgramados;
+
+  // Campos privados:
   double _totalIngresos = 0.0;
   double _totalEgresos = 0.0;
 
@@ -244,6 +261,13 @@ class IngresoEgreso {
     required this.anyo,
     required this.idTipoConceptoIngresoEgreso,
   });
+
+  bool entreFechas(DateTimeRange rango) {
+    final fecha = DateTime(anyo, mes);
+    final inicioMenosUnDia = rango.start.subtract(const Duration(days: 1));
+    final finMasUnDia = rango.end.add(const Duration(days: 1));
+    return inicioMenosUnDia.isBefore(fecha) && finMasUnDia.isAfter(fecha);
+  }
 
   factory IngresoEgreso.fromJson(Map<String, dynamic> json) =>
       _$IngresoEgresoFromJson(json);
