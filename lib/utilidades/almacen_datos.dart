@@ -80,7 +80,7 @@ class AlmacenDatos extends ChangeNotifier {
     _sumaEgresos += servicio.sumaEgresos;
 
     _montosPorSede.update(servicio.sedeResponsable,
-            (monto) => monto + servicio.finanzas.precioSinIVA,
+        (monto) => monto + servicio.finanzas.precioSinIVA,
         ifAbsent: () => servicio.finanzas.precioSinIVA);
 
     for (var ingreso in servicio.ingresos) {
@@ -117,7 +117,7 @@ class AlmacenDatos extends ChangeNotifier {
       } else {
         serviciosEntreFechas = _datos.servicios
             .where((servicio) =>
-        servicio.sumaIngresos > 0 || servicio.sumaEgresos > 0)
+                servicio.sumaIngresos > 0 || servicio.sumaEgresos > 0)
             .toList();
       }
 
