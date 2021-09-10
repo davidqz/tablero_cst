@@ -48,10 +48,6 @@ class Servicio {
   @JsonKey(name: 'Personas')
   final List<Persona> personas;
 
-  // Campos privados:
-  DateTime? _fechaInicio;
-  DateTimeRange? _rangoFecha;
-
   Servicio({
     required this.idServicio,
     required this.estatus,
@@ -90,27 +86,28 @@ class Servicio {
     }
   }
 
-  // Campos publicos ('getters') adicionales al modelo JSON
+  // ------------------------------------------------------
+  // Campos publicos adicionales al modelo JSON
+  // ------------------------------------------------------
+
   String get nombre => nombreCorto == '' ? nombreLargo : nombreCorto;
 
   bool get esInterno => interno == '1';
 
+  DateTimeRange? rangoFecha;
+
+  DateTime? _fechaInicio;
+
   DateTime? get fechaInicio => _fechaInicio;
 
-  DateTimeRange? get rangoFecha => _rangoFecha;
-
-  set rangoFecha(DateTimeRange? rango) {
-    _rangoFecha = rango;
-  }
-
   Iterable<IngresoEgreso> get ingresos {
-    final rango = _rangoFecha;
+    final rango = rangoFecha;
     if (rango == null) return finanzas.ingresos;
     return finanzas.ingresos.where((ingreso) => ingreso.entreFechas(rango));
   }
 
   double get sumaIngresos {
-    final rango = _rangoFecha;
+    final rango = rangoFecha;
     if (rango == null) return finanzas.totalIngresos;
 
     var suma = 0.0;
@@ -121,13 +118,13 @@ class Servicio {
   }
 
   Iterable<IngresoEgreso> get egresos {
-    final rango = _rangoFecha;
+    final rango = rangoFecha;
     if (rango == null) return finanzas.egresos;
     return finanzas.egresos.where((egreso) => egreso.entreFechas(rango));
   }
 
   double get sumaEgresos {
-    final rango = _rangoFecha;
+    final rango = rangoFecha;
     if (rango == null) return finanzas.totalEgresos;
 
     var suma = 0.0;
@@ -138,25 +135,32 @@ class Servicio {
   }
 
   double get ultimoAvanceReportado {
-    if (avances.isEmpty) {
-      return 0;
-    }
-    var anyo = avances.first.anyo;
-    var mes = avances.first.mes;
-    var porcentajeAvance = avances.first.porcentajeAvance;
+    if (avances.isEmpty) return 0;
 
-    for (var avance in avances) {
-      if (avance.anyo > anyo) {
-        anyo = avance.anyo;
-        mes = avance.mes;
-        porcentajeAvance = avance.porcentajeAvance;
-      } else if (avance.anyo == anyo) {
-        if (avance.mes > mes) ;
-        mes = avance.mes;
-        porcentajeAvance = avance.porcentajeAvance;
+    // Si hay un rango de fechas definidos, filtramos los avances reportados
+    // dentro de dicho rango.
+    final rango = rangoFecha;
+    final _avances = (rango == null)
+        ? avances
+        : avances.where((avance) => avance.entreFechas(rango));
+
+    var maxAnyo = _avances.first.anyo;
+    var maxMes = _avances.first.mes;
+    var maxPorcentajeAvance = _avances.first.porcentajeAvance;
+
+    for (var avance in _avances) {
+      if (avance.anyo > maxAnyo) {
+        maxAnyo = avance.anyo;
+        maxMes = avance.mes;
+        maxPorcentajeAvance = avance.porcentajeAvance;
+      } else if (avance.anyo == maxAnyo) {
+        if (avance.mes > maxMes) {
+          maxMes = avance.mes;
+          maxPorcentajeAvance = avance.porcentajeAvance;
+        }
       }
     }
-    return porcentajeAvance / 100.0;
+    return maxPorcentajeAvance / 100.0;
   }
 
   factory Servicio.fromJson(Map<String, dynamic> json) =>
@@ -264,8 +268,9 @@ class IngresoEgreso {
 
   bool entreFechas(DateTimeRange rango) {
     final fecha = DateTime(anyo, mes);
-    final inicioMenosUnDia = rango.start.subtract(const Duration(days: 1));
-    final finMasUnDia = rango.end.add(const Duration(days: 1));
+    final inicioMenosUnDia = DateTime(rango.start.year, rango.start.month)
+        .subtract(const Duration(days: 1));
+    final finMasUnDia = DateTime(rango.end.year, rango.end.month, 2);
     return inicioMenosUnDia.isBefore(fecha) && finMasUnDia.isAfter(fecha);
   }
 
@@ -346,6 +351,14 @@ class Avance {
     required this.anyo,
     required this.porcentajeAvance,
   });
+
+  bool entreFechas(DateTimeRange rango) {
+    final fecha = DateTime(anyo, mes);
+    final inicioMenosUnDia = DateTime(rango.start.year, rango.start.month)
+        .subtract(const Duration(days: 1));
+    final finMasUnDia = DateTime(rango.end.year, rango.end.month, 2);
+    return inicioMenosUnDia.isBefore(fecha) && finMasUnDia.isAfter(fecha);
+  }
 
   factory Avance.fromJson(Map<String, dynamic> json) => _$AvanceFromJson(json);
 }

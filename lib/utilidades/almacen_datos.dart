@@ -10,6 +10,8 @@ import '../widgets/seccion_filtros.dart';
 import 'constantes.dart';
 
 class AlmacenDatos extends ChangeNotifier {
+  late DatosJson _datos;
+
   AlmacenDatos() {
     _cargarArchivoJson().then((_) {
       _calcularIndicadoresGlobales();
@@ -26,39 +28,6 @@ class AlmacenDatos extends ChangeNotifier {
     _datos = DatosJson.fromJson(mapa);
     _datosListos = true;
     print('${_datos.servicios.length} servicios correctamente leidos');
-  }
-
-  void _inicializarIndicadores() {
-    _numServicios = 0;
-    _sumaMontos = 0;
-    _sumaIngresos = 0;
-    _sumaEgresos = 0;
-    _montosPorSede.clear();
-    _ingresosPorAnyo.clear();
-    _egresosPorAnyo.clear();
-  }
-
-  void _agregarServicioAIndicadores(Servicio servicio) {
-    _numServicios++;
-    _sumaMontos += servicio.finanzas.precioSinIVA;
-    _sumaIngresos += servicio.sumaIngresos;
-    _sumaEgresos += servicio.sumaEgresos;
-
-    _montosPorSede.update(servicio.sedeResponsable,
-        (monto) => monto + servicio.finanzas.precioSinIVA,
-        ifAbsent: () => servicio.finanzas.precioSinIVA);
-
-    for (var ingreso in servicio.ingresos) {
-      _ingresosPorAnyo.update(
-          ingreso.anyo.toString(), (monto) => monto + ingreso.montoSinIVA,
-          ifAbsent: () => ingreso.montoSinIVA);
-    }
-
-    for (var egreso in servicio.egresos) {
-      _egresosPorAnyo.update(
-          egreso.anyo.toString(), (monto) => monto + egreso.montoSinIVA,
-          ifAbsent: () => egreso.montoSinIVA);
-    }
   }
 
   void _calcularIndicadoresGlobales() {
@@ -94,12 +63,37 @@ class AlmacenDatos extends ChangeNotifier {
     }
   }
 
-  void rangoFechaSeleccionado(DateTimeRange? rangoFechas) {
-    _rangoFechas = rangoFechas;
-    for (var servicio in _datos.servicios) {
-      servicio.rangoFecha = rangoFechas;
+  void _inicializarIndicadores() {
+    _numServicios = 0;
+    _sumaMontos = 0;
+    _sumaIngresos = 0;
+    _sumaEgresos = 0;
+    _montosPorSede.clear();
+    _ingresosPorAnyo.clear();
+    _egresosPorAnyo.clear();
+  }
+
+  void _agregarServicioAIndicadores(Servicio servicio) {
+    _numServicios++;
+    _sumaMontos += servicio.finanzas.precioSinIVA;
+    _sumaIngresos += servicio.sumaIngresos;
+    _sumaEgresos += servicio.sumaEgresos;
+
+    _montosPorSede.update(servicio.sedeResponsable,
+            (monto) => monto + servicio.finanzas.precioSinIVA,
+        ifAbsent: () => servicio.finanzas.precioSinIVA);
+
+    for (var ingreso in servicio.ingresos) {
+      _ingresosPorAnyo.update(
+          ingreso.anyo.toString(), (monto) => monto + ingreso.montoSinIVA,
+          ifAbsent: () => ingreso.montoSinIVA);
     }
-    _calcularIndicadoresAplicandoFiltros();
+
+    for (var egreso in servicio.egresos) {
+      _egresosPorAnyo.update(
+          egreso.anyo.toString(), (monto) => monto + egreso.montoSinIVA,
+          ifAbsent: () => egreso.montoSinIVA);
+    }
   }
 
   void _calcularIndicadoresAplicandoFiltros() {
@@ -123,7 +117,7 @@ class AlmacenDatos extends ChangeNotifier {
       } else {
         serviciosEntreFechas = _datos.servicios
             .where((servicio) =>
-                servicio.sumaIngresos > 0 || servicio.sumaEgresos > 0)
+        servicio.sumaIngresos > 0 || servicio.sumaEgresos > 0)
             .toList();
       }
 
@@ -134,24 +128,27 @@ class AlmacenDatos extends ChangeNotifier {
               (servicio) => filtrosEstatusActivos.contains(servicio.estatus));
 
       // Por ultimo filtramos por sede responable
-      final serviciosFiltrados = <Servicio>[];
+      _serviciosFiltrados.clear();
       _inicializarIndicadores();
       for (var servicio in serviciosFiltradosPorEstatus) {
         if (filtrosSedesActivos.isEmpty ||
             filtrosSedesActivos.contains(servicio.sedeResponsable)) {
-          serviciosFiltrados.add(servicio);
+          _serviciosFiltrados.add(servicio);
           _agregarServicioAIndicadores(servicio);
         }
       }
-      _serviciosFiltrados.replaceRange(
-          0, _serviciosFiltrados.length, serviciosFiltrados);
     }
     notifyListeners();
   }
 
-  late DatosJson _datos;
+  bool _datosListos = false;
+
+  bool get datosListos => _datosListos;
 
   final List<Servicio> _serviciosFiltrados = [];
+
+  List<Servicio> get servicios =>
+      _hayFiltrosActivos ? _serviciosFiltrados : _datos.servicios;
 
   bool get _hayFiltrosActivos {
     if (_filtrosSedes.any((filtro) => filtro.seleccionado)) {
@@ -165,13 +162,6 @@ class AlmacenDatos extends ChangeNotifier {
     }
     return false;
   }
-
-  List<Servicio> get servicios =>
-      _hayFiltrosActivos ? _serviciosFiltrados : _datos.servicios;
-
-  bool _datosListos = false;
-
-  bool get datosListos => _datosListos;
 
   // Usamos SplayTreeSet para almacenar en orden alfabetico los diferentes
   // nombres de sedes y estatus entre todos los servicios leidos
@@ -187,29 +177,44 @@ class AlmacenDatos extends ChangeNotifier {
 
   DateTimeRange? _rangoFechas;
 
+  void rangoFechaSeleccionado(DateTimeRange? rangoFechas) {
+    _rangoFechas = rangoFechas;
+    for (var servicio in _datos.servicios) {
+      servicio.rangoFecha = rangoFechas;
+    }
+    _calcularIndicadoresAplicandoFiltros();
+  }
+
   // -----------------------------------------------------------
   // ------------------ Indicadores ----------------------------
   // -----------------------------------------------------------
 
   int _numServicios = 0;
+
   int get numServicios => _numServicios;
 
   double _sumaMontos = 0.0;
+
   double get sumaMontos => _sumaMontos;
 
   double _sumaIngresos = 0.0;
+
   double get sumaIngresos => _sumaIngresos;
 
   double _sumaEgresos = 0.0;
+
   double get sumaEgresos => _sumaEgresos;
 
   // Usamos SplayTreeMap para mantener el orden de las sedes y los años
   final _montosPorSede = SplayTreeMap<String, double>();
+
   SplayTreeMap<String, double> get montosPorSede => _montosPorSede;
 
   final _ingresosPorAnyo = SplayTreeMap<String, double>();
+
   SplayTreeMap<String, double> get ingresosPorAnyo => _ingresosPorAnyo;
 
   final _egresosPorAnyo = SplayTreeMap<String, double>();
+
   SplayTreeMap<String, double> get egresosPorAnyo => _egresosPorAnyo;
 }

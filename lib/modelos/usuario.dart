@@ -1,6 +1,6 @@
 class Usuario {
   String _nombre = '';
-  bool _autentificado = true;
+  bool _autentificado = false;
 
   Usuario();
 
