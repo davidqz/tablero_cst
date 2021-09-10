@@ -87,18 +87,23 @@ class Servicio {
   }
 
   // ------------------------------------------------------
-  // Campos publicos adicionales al modelo JSON
+  // Campos internos adicionales al modelo JSON
   // ------------------------------------------------------
 
   String get nombre => nombreCorto == '' ? nombreLargo : nombreCorto;
 
   bool get esInterno => interno == '1';
 
-  DateTimeRange? rangoFecha;
-
   DateTime? _fechaInicio;
 
   DateTime? get fechaInicio => _fechaInicio;
+
+  // Usamos el campo rangoFecha para poder calcular los ingresos, egresos
+  // y avances de acuerdo al rango definido por el filtro por periodo.
+  // Debido a que este campo no se encuentra en el modelo de datos JSON,
+  // utilizamos la siguiente anotación para ignorarlo de manera segura.
+  @JsonKey(ignore: true)
+  DateTimeRange? rangoFecha;
 
   Iterable<IngresoEgreso> get ingresos {
     final rango = rangoFecha;
