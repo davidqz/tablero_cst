@@ -7,14 +7,14 @@ import '../utilidades/constantes.dart';
 import '../utilidades/notificador_tabla_servicios.dart';
 
 class TablaColumnas extends StatelessWidget {
-  TablaColumnas();
+  const TablaColumnas({Key? key}) : super(key: key);
 
   List<DataColumn> _crearEncabezados(List<Columna<Servicio>> columnas) =>
       columnas
           .map((columna) => DataColumn(
                 label: Text(
                   columna.encabezado,
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
                 numeric: columna.alineacionDerecha,
                 onSort: columna.alOrdenar,
@@ -36,7 +36,7 @@ class TablaColumnas extends StatelessWidget {
                 sortColumnIndex: notificadorTabla.indiceColumnaOrdenada,
                 sortAscending: notificadorTabla.ordenAscendente,
                 rowsPerPage: notificadorTabla.renglonesPorPagina,
-                availableRowsPerPage: [kRenglonesPorPagina, 10, 20],
+                availableRowsPerPage: const [kRenglonesPorPagina, 10, 20],
                 onRowsPerPageChanged: (renglones) =>
                     notificadorTabla.renglonesPorPagina = renglones!,
               ),

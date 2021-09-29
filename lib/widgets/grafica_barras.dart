@@ -15,7 +15,8 @@ class GraficaBarras extends StatelessWidget {
     required this.mapaDatos,
     this.colorPrincipal = ColorPaleta11.turqueza,
     this.flex = 1,
-  }) {
+    Key? key,
+  }) : super(key: key) {
     final datos = <EtiquetaValor>[];
     mapaDatos.forEach((k, v) => datos.add(EtiquetaValor(k, v)));
     final tonosColores =
@@ -47,9 +48,9 @@ class GraficaBarras extends StatelessWidget {
         child: charts.BarChart(
           _seriesList,
           barRendererDecorator: charts.BarLabelDecorator<String>(),
-          domainAxis: charts.OrdinalAxisSpec(),
+          domainAxis: const charts.OrdinalAxisSpec(),
           primaryMeasureAxis:
-              charts.NumericAxisSpec(renderSpec: charts.NoneRenderSpec()),
+              const charts.NumericAxisSpec(renderSpec: charts.NoneRenderSpec()),
         ),
       ),
     );

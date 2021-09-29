@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class TarjetaConTitulo extends StatelessWidget {
-  TarjetaConTitulo({
+  const TarjetaConTitulo({
     required this.titulo,
     this.texto,
     this.widget,
     this.seExpande = true,
     this.flex = 1,
-  });
+    Key? key,
+  }) : super(key: key);
 
   final String titulo;
   final String? texto;

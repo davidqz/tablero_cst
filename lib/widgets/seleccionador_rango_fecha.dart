@@ -6,7 +6,8 @@ import '../utilidades/constantes.dart';
 class SeleccionadorRangoFecha extends StatefulWidget {
   final Function(DateTimeRange?) alDefinirRangoFecha;
 
-  SeleccionadorRangoFecha({required this.alDefinirRangoFecha});
+  const SeleccionadorRangoFecha({required this.alDefinirRangoFecha, Key? key})
+      : super(key: key);
 
   @override
   _SeleccionadorRangoFechaState createState() =>
@@ -106,36 +107,36 @@ class _SeleccionadorRangoFechaState extends State<SeleccionadorRangoFecha> {
         IconButton(
           splashRadius: 24.0,
           onPressed: _mostrarSeleccionadorRangoFecha,
-          icon: Icon(Icons.date_range_rounded),
+          icon: const Icon(Icons.date_range_rounded),
           visualDensity: VisualDensity.compact,
         ),
-        SizedBox(width: 4.0),
+        const SizedBox(width: 4.0),
         SizedBox(
           width: 110,
           child: TextField(
             controller: _controladorFechaInicio,
             focusNode: _nodoEnfoqueFechaInicio,
             keyboardType: TextInputType.datetime,
-            decoration: InputDecoration(labelText: 'Fecha inicio'),
+            decoration: const InputDecoration(labelText: 'Fecha inicio'),
             onSubmitted: _fechaCambiada,
           ),
         ),
-        SizedBox(width: 4.0),
+        const SizedBox(width: 4.0),
         SizedBox(
           width: 110,
           child: TextField(
             focusNode: _nodoEnfoqueFechaFin,
             controller: _controladorFechaFin,
             keyboardType: TextInputType.datetime,
-            decoration: InputDecoration(labelText: 'Fecha fin'),
+            decoration: const InputDecoration(labelText: 'Fecha fin'),
             onSubmitted: _fechaCambiada,
           ),
         ),
-        SizedBox(width: 4.0),
+        const SizedBox(width: 4.0),
         IconButton(
           splashRadius: 24.0,
           onPressed: _borrarFechas,
-          icon: Icon(Icons.clear_rounded),
+          icon: const Icon(Icons.clear_rounded),
           visualDensity: VisualDensity.compact,
         )
       ],

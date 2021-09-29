@@ -5,7 +5,7 @@ import '../utilidades/almacen_datos.dart';
 import 'grafica_barras.dart';
 
 class SeccionGraficas extends StatelessWidget {
-  SeccionGraficas();
+  const SeccionGraficas({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

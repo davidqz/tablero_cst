@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:tablero_cst/utilidades/autentificacion_usuario_basica.dart';
 
-import '../modelos/usuario.dart';
 import '../utilidades/constantes.dart';
 import '../widgets/banner_superior.dart';
 
 class PantallaAutentificacion extends StatefulWidget {
-  const PantallaAutentificacion();
+  const PantallaAutentificacion({Key? key}) : super(key: key);
 
   @override
   _PantallaAutentificacionState createState() =>
@@ -18,17 +18,15 @@ class _PantallaAutentificacionState extends State<PantallaAutentificacion> {
   final _controladorTextoContrasena = TextEditingController();
 
   void _autentficarUsuario() {
-    var usuario = _controladorTextoUsuario.text;
-    var contrasena = _controladorTextoContrasena.text;
-    _limpiarFormulario();
+    final autentificacion = context.read<AutentificacionUsuarioBasica>();
 
-    // TODO: Implementar autentificacion
-    if (usuario == 'admin' && contrasena == '1234') {
-      context.read<Usuario>().autentificacionExitosa(usuario);
+    if (autentificacion.autentificarUsuario(
+      nombre: _controladorTextoUsuario.text,
+      contrasena: _controladorTextoContrasena.text,
+    )) {
       Navigator.of(context).pushNamed(kRutaPrincipal);
-    } else {
-      print('Usuario o contraseña invalidos');
     }
+    _limpiarFormulario();
   }
 
   void _limpiarFormulario() {
@@ -51,8 +49,8 @@ class _PantallaAutentificacionState extends State<PantallaAutentificacion> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            BannerSuperior(),
-            SizedBox(height: 50),
+            const BannerSuperior(),
+            const SizedBox(height: 50),
             SizedBox(
               width: 400,
               child: Card(
@@ -69,7 +67,7 @@ class _PantallaAutentificacionState extends State<PantallaAutentificacion> {
                             autofocus: true,
                             textInputAction: TextInputAction.next,
                             controller: _controladorTextoUsuario,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               labelText: 'Usuario',
                             ),
                           ),
@@ -80,7 +78,7 @@ class _PantallaAutentificacionState extends State<PantallaAutentificacion> {
                             obscureText: true,
                             onFieldSubmitted: (_) => _autentficarUsuario(),
                             controller: _controladorTextoContrasena,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               labelText: 'Contraseña',
                             ),
                           ),
@@ -88,7 +86,7 @@ class _PantallaAutentificacionState extends State<PantallaAutentificacion> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: ElevatedButton(
-                            child: Text('Ingresar'),
+                            child: const Text('Ingresar'),
                             onPressed: _autentficarUsuario,
                           ),
                         ),

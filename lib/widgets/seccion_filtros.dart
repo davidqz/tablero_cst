@@ -17,7 +17,7 @@ class Filtro {
 }
 
 class SeccionFiltros extends StatefulWidget {
-  SeccionFiltros();
+  const SeccionFiltros({Key? key}) : super(key: key);
 
   @override
   _SeccionFiltrosState createState() => _SeccionFiltrosState();

@@ -29,13 +29,12 @@ class FuenteDatosTabla<S> extends DataTableSource {
   }
 
   @override
-  DataRow? getRow(int indice) {
-    if (indice >= 0 && indice < _datos.length) {
+  DataRow? getRow(int index) {
+    if (index >= 0 && index < _datos.length) {
       final celdas = columnas
-          .map(
-              (columna) => DataCell(Text(columna.extraerTexto(_datos[indice]))))
+          .map((columna) => DataCell(Text(columna.extraerTexto(_datos[index]))))
           .toList(growable: false);
-      return DataRow.byIndex(index: indice, cells: celdas);
+      return DataRow.byIndex(index: index, cells: celdas);
     }
     return null;
   }

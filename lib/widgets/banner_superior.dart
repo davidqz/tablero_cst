@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../utilidades/constantes.dart';
 
 class BannerSuperior extends StatelessWidget {
+  const BannerSuperior({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -12,7 +14,7 @@ class BannerSuperior extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Image(
+            const Image(
               image: AssetImage('imagenes/logo_conacyt.png'),
               fit: BoxFit.fitHeight,
               filterQuality: FilterQuality.high,
@@ -24,7 +26,7 @@ class BannerSuperior extends StatelessWidget {
                   .headline4!
                   .copyWith(color: kColorSecundario),
             ),
-            Image(
+            const Image(
               image: AssetImage('imagenes/logo_cimat.png'),
               fit: BoxFit.fitHeight,
               filterQuality: FilterQuality.high,

@@ -9,7 +9,7 @@ import '../widgets/seccion_indicadores.dart';
 import '../widgets/tabla_columnas.dart';
 
 class PantallaPrincipal extends StatelessWidget {
-  const PantallaPrincipal();
+  const PantallaPrincipal({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class PantallaPrincipal extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: Column(
           children: [
-            BannerSuperior(),
+            const BannerSuperior(),
             Expanded(
               child: Provider.of<AlmacenDatos>(context).datosListos
                   ? Padding(
@@ -28,7 +28,7 @@ class PantallaPrincipal extends StatelessWidget {
                         top: 16.0,
                       ),
                       child: Column(
-                        children: [
+                        children: const [
                           SeccionFiltros(),
                           SeccionIndicadores(),
                           SeccionGraficas(),
@@ -36,7 +36,7 @@ class PantallaPrincipal extends StatelessWidget {
                         ],
                       ),
                     )
-                  : Center(child: CircularProgressIndicator()),
+                  : const Center(child: CircularProgressIndicator()),
             ),
           ],
         ),
