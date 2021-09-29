@@ -18,23 +18,23 @@ class SeccionIndicadores extends StatelessWidget {
             titulo: 'Numero de servicios',
             texto: almacen.numServicios.toString(),
           ),
-              TarjetaConTitulo(
-                flex: 2,
-                titulo: 'Suma de montos',
-                texto: kFormatoMoneda.format(almacen.sumaMontos),
-              ),
-              TarjetaConTitulo(
-                flex: 2,
-                titulo: 'Suma de ingresos',
-                texto: kFormatoMoneda.format(almacen.sumaIngresos),
-              ),
-              TarjetaConTitulo(
-                flex: 2,
-                titulo: 'Suma de egresos',
-                texto: kFormatoMoneda.format(almacen.sumaEgresos),
-              ),
-            ],
+          TarjetaConTitulo(
+            flex: 2,
+            titulo: 'Suma de montos',
+            texto: kFormatoMoneda.format(almacen.sumaMontos),
           ),
+          TarjetaConTitulo(
+            flex: 2,
+            titulo: 'Suma de ingresos',
+            texto: kFormatoMoneda.format(almacen.sumaIngresos),
+          ),
+          TarjetaConTitulo(
+            flex: 2,
+            titulo: 'Suma de egresos',
+            texto: kFormatoMoneda.format(almacen.sumaEgresos),
+          ),
+        ],
+      ),
     );
   }
 }
