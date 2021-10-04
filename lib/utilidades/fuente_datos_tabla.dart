@@ -32,7 +32,10 @@ class FuenteDatosTabla<S> extends DataTableSource {
   DataRow? getRow(int index) {
     if (index >= 0 && index < _datos.length) {
       final celdas = columnas
-          .map((columna) => DataCell(Text(columna.extraerTexto(_datos[index]))))
+          .map((columna) => DataCell(SelectableText(
+                columna.extraerTexto(_datos[index]),
+                maxLines: 1,
+              )))
           .toList(growable: false);
       return DataRow.byIndex(index: index, cells: celdas);
     }

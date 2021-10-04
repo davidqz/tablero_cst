@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tablero_cst/utilidades/autentificacion_usuario_basica.dart';
 
+import '../utilidades/autentificacion_usuario_basica.dart';
 import '../utilidades/constantes.dart';
 import '../widgets/banner_superior.dart';
 

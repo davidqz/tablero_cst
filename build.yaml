@@ -1,6 +1,6 @@
-# Configuracion de parametros para json_serializable. Mas info:
-# https://github.com/google/json_serializable.dart/tree/master/json_serializable#build-configuration
-# AndroidStudio muestra un warining: 'targets is not allowed' que se puede ignorar.
+# Configuracion de parametros para json_serializable. Para mas informacion:
+# https://pub.dev/packages/json_serializable#build-configuration
+# Nota: AndroidStudio muestra un warining: 'targets is not allowed' que se puede ignorar.
 targets:
   $default:
     builders:

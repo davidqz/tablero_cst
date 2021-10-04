@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
-import 'package:tablero_cst/utilidades/autentificacion_usuario_basica.dart';
-import 'package:tablero_cst/widgets/verificador_usuario.dart';
 
 import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
 import 'pantallas/pantalla_autentificacion.dart';
 import 'utilidades/almacen_datos.dart';
+import 'utilidades/autentificacion_usuario_basica.dart';
 import 'utilidades/constantes.dart';
 import 'utilidades/notificador_tabla_servicios.dart';
+import 'widgets/verificador_usuario.dart';
 
 void main() {
   configureApp();

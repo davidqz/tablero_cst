@@ -1,16 +1,13 @@
-include: package:flutter_lints/flutter.yaml
-
 # Aqui se pueden activar o desactivar las reglas de estilo y sintaxis
 # recomendadas para aplicaciones Flutter, mostradas en Dart Analysis.
-#
 # Lista completa y documentación de cada regla (lint):
 # https://dart-lang.github.io/linter/lints/index.html
+include: package:flutter_lints/flutter.yaml
 
 linter:
   rules:
-    # Notifica del uso de comillas dobles para Strings, cuando no se requiere
-    # escapar comillas simples.
-    prefer_single_quotes: true
     # Ignora la recomendacion de no incluir prints en código de produccion.
     avoid_print: false
+    # Para separar visualmente los imports locales de los paquetes externos.
+    prefer_relative_imports: true
 

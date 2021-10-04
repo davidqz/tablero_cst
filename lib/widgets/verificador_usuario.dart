@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tablero_cst/utilidades/autentificacion_usuario_basica.dart';
 
 import '../pantallas/pantalla_autentificacion.dart';
 import '../pantallas/pantalla_principal.dart';
+import '../utilidades/autentificacion_usuario_basica.dart';
 
 class VerificadorUsuario extends StatelessWidget {
   const VerificadorUsuario({Key? key}) : super(key: key);
