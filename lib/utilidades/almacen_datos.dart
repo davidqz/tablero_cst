@@ -21,9 +21,9 @@ class AlmacenDatos extends ChangeNotifier {
   }
 
   Future _cargarArchivoJson() async {
-    print('Leyendo archivo: $kRutaDatosJson');
+    print('Leyendo archivo: $kArchivoDatosJson');
     final jsonString =
-        await rootBundle.loadString(kRutaDatosJson, cache: false);
+        await rootBundle.loadString(kArchivoDatosJson, cache: false);
     final mapa = json.decode(jsonString) as Map<String, dynamic>;
     _datos = DatosJson.fromJson(mapa);
     _datosListos = true;

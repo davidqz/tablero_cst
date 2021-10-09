@@ -23,10 +23,7 @@ class PantallaPrincipal extends StatelessWidget {
             Expanded(
               child: Provider.of<AlmacenDatos>(context).datosListos
                   ? Padding(
-                      padding: const EdgeInsets.only(
-                        left: 8.0,
-                        top: 16.0,
-                      ),
+                      padding: const EdgeInsets.only(left: 8.0, top: 16.0),
                       child: Column(
                         children: const [
                           SeccionFiltros(),

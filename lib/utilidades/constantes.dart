@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart' show DateFormat, NumberFormat;
 
 // Nombres de rutas para navegacion entre paginas
-const kRutaPrincipal = '/';
+const kRutaPrincipal = '/principal';
 const kRutaAutentificacion = '/autentificacion';
 
-// Ruta y nombre de archivo JSON de origen.
-const kRutaDatosJson = 'datos/datos_sgp_desarrollo_v2.json';
-// const kRutaDatosJson = 'datos/datos_sgp_produccion_v2.json';
+// Ruta y nombre del archivo JSON de origen.
+const kArchivoDatosJson = 'datos/datos_sgp_desarrollo_v2.json';
+// const kArchivoDatosJson = 'datos/datos_sgp_produccion_v2.json';
 
 // Texto que aparece como titulo de la pagina web.
 const kTituloPaginaWeb = 'Tablero de Indicadores CST';

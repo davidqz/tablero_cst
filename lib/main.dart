@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'configure_nonweb.dart' if (dart.library.html) 'configure_web.dart';
 import 'pantallas/pantalla_autentificacion.dart';
+import 'pantallas/pantalla_principal.dart';
 import 'utilidades/almacen_datos.dart';
 import 'utilidades/autentificacion_usuario_basica.dart';
 import 'utilidades/constantes.dart';
@@ -21,68 +22,68 @@ class TableroCstApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => AutentificacionUsuarioBasica()),
-          ChangeNotifierProvider(create: (_) => AlmacenDatos()),
-          ChangeNotifierProxyProvider<AlmacenDatos, NotificadorTablaServicios>(
-              create: (_) => NotificadorTablaServicios(),
-              update: (_, almacen, notificadorTabla) =>
-                  (notificadorTabla == null)
-                      ? NotificadorTablaServicios()
-                      : notificadorTabla
-                    ..actualizarServicios(almacen.servicios)),
+      providers: [
+        ChangeNotifierProvider(create: (_) => AutentificacionUsuarioBasica()),
+        ChangeNotifierProvider(create: (_) => AlmacenDatos()),
+        ChangeNotifierProxyProvider<AlmacenDatos, NotificadorTablaServicios>(
+            create: (_) => NotificadorTablaServicios(),
+            update: (_, almacen, notificadorTabla) => (notificadorTabla == null)
+                ? NotificadorTablaServicios()
+                : notificadorTabla
+              ..actualizarServicios(almacen.servicios)),
+      ],
+      child: MaterialApp(
+        title: kTituloPaginaWeb,
+        initialRoute: kRutaAutentificacion,
+        routes: <String, WidgetBuilder>{
+          kRutaPrincipal: (_) => const VerificadorUsuario(PantallaPrincipal()),
+          kRutaAutentificacion: (_) => const PantallaAutentificacion(),
+        },
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
         ],
-        child: MaterialApp(
-          title: kTituloPaginaWeb,
-          initialRoute: kRutaPrincipal,
-          routes: <String, WidgetBuilder>{
-            kRutaPrincipal: (_) => const VerificadorUsuario(),
-            kRutaAutentificacion: (_) => const PantallaAutentificacion(),
-          },
-          localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-          ],
-          supportedLocales: const [Locale('es', 'MX')],
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData.light().copyWith(
-            colorScheme: const ColorScheme.light().copyWith(
-              primary: kColorPrimario,
-              secondary: kColorSecundario,
-              background: kColorFondo,
-            ),
-            primaryColor: kColorPrimario,
-            accentColor: kColorSecundario,
-            backgroundColor: kColorFondo,
-            iconTheme: const IconThemeData(
-              color: Colors.black87,
-            ),
-            inputDecorationTheme: const InputDecorationTheme(
-              border: OutlineInputBorder(),
-              isDense: true,
-              filled: true,
-            ),
-            elevatedButtonTheme: ElevatedButtonThemeData(
-              style: ElevatedButton.styleFrom(
-                onPrimary: Colors.white,
-                primary: kColorSecundario,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 16,
-                ),
+        supportedLocales: const [Locale('es', 'MX')],
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.light().copyWith(
+          colorScheme: const ColorScheme.light().copyWith(
+            primary: kColorPrimario,
+            secondary: kColorSecundario,
+            background: kColorFondo,
+          ),
+          primaryColor: kColorPrimario,
+          accentColor: kColorSecundario,
+          backgroundColor: kColorFondo,
+          iconTheme: const IconThemeData(
+            color: Colors.black87,
+          ),
+          inputDecorationTheme: const InputDecorationTheme(
+            border: OutlineInputBorder(),
+            isDense: true,
+            filled: true,
+          ),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              onPrimary: Colors.white,
+              primary: kColorSecundario,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 32,
+                vertical: 16,
               ),
             ),
-            chipTheme: ChipTheme.of(context).copyWith(
-              backgroundColor: Colors.black26,
-              elevation: 2,
-              selectedColor: kColorSecundario,
-              checkmarkColor: Colors.white,
-              labelStyle: ThemeData.fallback()
-                  .textTheme
-                  .bodyText1!
-                  .copyWith(color: Colors.white),
-            ),
           ),
-        ));
+          chipTheme: ChipTheme.of(context).copyWith(
+            backgroundColor: Colors.black26,
+            elevation: 2,
+            selectedColor: kColorSecundario,
+            checkmarkColor: Colors.white,
+            labelStyle: ThemeData.fallback()
+                .textTheme
+                .bodyText1!
+                .copyWith(color: Colors.white),
+          ),
+        ),
+      ),
+    );
   }
 }
